@@ -254,7 +254,7 @@ def init_db():
 ("Meesho", "Marketplace Quality Executive", "Remote",
  "Ensure seller quality standards and improve catalog accuracy.",
  "BA / B.Com", "₹4–6 LPA", "Part-Time", "NA", "2025-08-25",
- "meesho.png", "https://careers.meesho.com"),,
+ "meesho.png", "https://careers.meesho.com"),
 
 ("Infosys BPM", "Process Executive", "Bangalore",
  "Handle business process operations and client support services.",
@@ -483,6 +483,7 @@ def init_db():
  "ltts.png", "https://www.ltts.com/careers")
     ])
     db.commit()
+
 
 
 
