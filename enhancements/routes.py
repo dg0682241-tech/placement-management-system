@@ -884,7 +884,8 @@ def logout():
 
 @enhancements_bp.route("/courses")
 def courses():
-    return redirect(url_for("enhancements.courses"))
+    return render_template("courses.html")
+
 
 
 #---------about--------
@@ -1647,6 +1648,7 @@ def admin_questions1_message():
     reply = chat_with_ai(user_message, role="admin")
 
     return jsonify({"reply": reply})
+
 
 
 
