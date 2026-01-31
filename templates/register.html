@@ -122,30 +122,21 @@
 <!-- ADMIN ROLE TOGGLE -->
 <script>
 function togglePassword(icon){
-  if(!icon) return;
-
   const targetId = icon.dataset.target;
-  if(!targetId) {
-    console.warn("togglePassword: data-target missing");
-    return;
-  }
-
   const field = document.getElementById(targetId);
-  if(!field) {
-    console.warn("togglePassword: input not found", targetId);
-    return;
-  }
+
+  console.log("TYPE:", field.type);
+  console.log("ICON:", icon.className);
 
   if(field.type === "password"){
-  field.type = "text";
-  icon.classList.add("fa-eye");
-  icon.classList.remove("fa-eye-slash");
-} else {
-  field.type = "password";
-  icon.classList.add("fa-eye-slash");
-  icon.classList.remove("fa-eye");
-}
-
+    field.type = "text";
+    icon.classList.add("fa-eye");
+    icon.classList.remove("fa-eye-slash");
+  } else {
+    field.type = "password";
+    icon.classList.add("fa-eye-slash");
+    icon.classList.remove("fa-eye");
+  }
 }
   const roleSelect = document.getElementById("roleSelect");
 const adminCodeField = document.getElementById("adminCodeField");
@@ -161,6 +152,7 @@ roleSelect.addEventListener("change", function () {
 
 
 {% endblock %}
+
 
 
 
