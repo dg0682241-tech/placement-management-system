@@ -56,41 +56,27 @@
           </datalist>
         </div>
 
-      <div>
-          <label class="font-medium">🛠 Skills</label>
-          <input type="text"
-                 name="skills"
-                  id="skillsInput"
-                 list="skillsList"
-                 placeholder="Python, SQL, React"
-                 class="w-full mt-2 px-4 py-2 border rounded-lg">
+     <div class="mt-2 relative">
+  <input
+    type="text"
+    id="skillsInput"
+    placeholder="Type or select skills"
+    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-600"
+    autocomplete="off"
+  >
 
-          <datalist id="skillsList">
-            <option value="Python">
-            <option value="Java">
-            <option value="C++">
-            <option value="SQL">
-            <option value="HTML">
-            <option value="CSS">
-            <option value="JavaScript">
-            <option value="React">
-            <option value="Node.js">
-            <option value="Flask">
-            <option value="Django">
-            <option value="Machine Learning">
-            <option value="Data Analysis">
-            <option value="AWS">
-            <option value="Docker">
-            <option value="Git">
-            <option value="Communication">
-            <option value="Leadership">
-            <option value="Problem-Solving">
-          </datalist>
+  <!-- Dropdown -->
+  <div id="skillsDropdown"
+       class="absolute z-10 mt-1 w-full bg-white border rounded-lg shadow hidden max-h-40 overflow-y-auto">
+  </div>
 
-         <p class="text-sm text-gray-500 mt-1">
-            You can select or type multiple skills, separated by commas
-          </p>
-        </div>
+  <!-- Selected skills -->
+  <div id="skillsContainer" class="flex flex-wrap gap-2 mt-3"></div>
+
+  <!-- Hidden input (sent to backend) -->
+  <input type="hidden" name="skills" id="skillsHidden">
+</div>
+
 
       </div>
 
@@ -159,27 +145,91 @@ resumeInput.addEventListener("change", function () {
     this.value = ""; // clear file input
   }
 });
-const skillsInput = document.getElementById("skillsInput");
-const skillsList = document.getElementById("skillsList");
 
-skillsInput.addEventListener("input", () => {
-  const value = skillsInput.value;
-  const parts = value.split(",");
-  const lastPart = parts[parts.length - 1].trim();
+const skills = [
+  "Python", "Java", "C++", "SQL", "HTML", "CSS",
+  "JavaScript", "React", "Node.js", "Flask", "Django",
+  "Machine Learning", "AWS", "Docker", "Git",
+  "Communication", "Leadership", "Problem-Solving"
+];
 
-  // If last word matches a datalist option
-  const match = [...skillsList.options].find(
-    option => option.value.toLowerCase() === lastPart.toLowerCase()
+const input = document.getElementById("skillsInput");
+const dropdown = document.getElementById("skillsDropdown");
+const container = document.getElementById("skillsContainer");
+const hiddenInput = document.getElementById("skillsHidden");
+
+let selectedSkills = [];
+
+// Show dropdown always on focus or click
+input.addEventListener("focus", showDropdown);
+input.addEventListener("click", showDropdown);
+
+// Filter on typing
+input.addEventListener("input", showDropdown);
+
+function showDropdown() {
+  const value = input.value.toLowerCase();
+  dropdown.innerHTML = "";
+
+  const filtered = skills.filter(
+    skill => skill.toLowerCase().includes(value)
   );
 
-  if (match) {
-    parts[parts.length - 1] = " " + match.value;
-    skillsInput.value = parts.join(",").replace(/^,/, "").trim() + ", ";
+  filtered.forEach(skill => {
+    const div = document.createElement("div");
+    div.textContent = skill;
+    div.className = "px-4 py-2 cursor-pointer hover:bg-indigo-100";
+
+    div.onclick = () => addSkill(skill);
+    dropdown.appendChild(div);
+  });
+
+  dropdown.classList.remove("hidden");
+}
+
+// Add skill
+function addSkill(skill) {
+  if (selectedSkills.includes(skill)) return;
+
+  selectedSkills.push(skill);
+  updateUI();
+  input.value = "";
+  dropdown.classList.add("hidden");
+}
+
+// Update tags + hidden input
+function updateUI() {
+  container.innerHTML = "";
+  selectedSkills.forEach(skill => {
+    const tag = document.createElement("span");
+    tag.className =
+      "bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm flex items-center gap-2";
+    tag.innerHTML = `
+      ${skill}
+      <button onclick="removeSkill('${skill}')" class="font-bold">×</button>
+    `;
+    container.appendChild(tag);
+  });
+
+  hiddenInput.value = selectedSkills.join(", ");
+}
+
+// Remove skill
+function removeSkill(skill) {
+  selectedSkills = selectedSkills.filter(s => s !== skill);
+  updateUI();
+}
+
+// Close dropdown on outside click
+document.addEventListener("click", e => {
+  if (!e.target.closest(".relative")) {
+    dropdown.classList.add("hidden");
   }
 });
 </script>
 
 {% endblock %}
+
 
 
 
