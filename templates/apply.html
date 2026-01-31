@@ -123,29 +123,36 @@
 
 </div>
 <script>
-function validateForm() {
+/* ===============================
+   PHONE NUMBER VALIDATION
+================================ */
+const phoneInput = document.querySelector('input[name="phone"]');
 
-  // Phone validation
-  const phone = document.querySelector('input[name="phone"]').value;
-  if (!/^\d{10}$/.test(phone)) {
-    alert("Phone number must be exactly 10 digits.");
-    return false;
-  }
+phoneInput.addEventListener("input", () => {
+  phoneInput.value = phoneInput.value.replace(/\D/g, "").slice(0, 10);
+});
 
-  // Resume size validation (2 MB)
-  const resumeInput = document.getElementById("resumeInput");
-  const MAX_RESUME_SIZE = 2 * 1024 * 1024; // 2MB
+
+/* ===============================
+   RESUME SIZE VALIDATION (2MB)
+================================ */
+const resumeInput = document.getElementById("resumeInput");
+const MAX_RESUME_SIZE = 2 * 1024 * 1024; // 2MB
 
 resumeInput.addEventListener("change", function () {
   const file = this.files[0];
   if (!file) return;
 
   if (file.size > MAX_RESUME_SIZE) {
-    alert("❌ Resume size is too large. Maximum allowed size is 2 MB.");
-    this.value = ""; // clear file input
+    alert("❌ Resume size must be under 2 MB");
+    this.value = "";
   }
 });
 
+
+/* ===============================
+   SKILLS MULTI-SELECT DROPDOWN
+================================ */
 const skills = [
   "Python", "Java", "C++", "SQL", "HTML", "CSS",
   "JavaScript", "React", "Node.js", "Flask", "Django",
@@ -160,75 +167,79 @@ const hiddenInput = document.getElementById("skillsHidden");
 
 let selectedSkills = [];
 
-// Show dropdown always on focus or click
+/* Show dropdown ALWAYS */
 input.addEventListener("focus", showDropdown);
 input.addEventListener("click", showDropdown);
-
-// Filter on typing
 input.addEventListener("input", showDropdown);
 
+/* Render dropdown */
 function showDropdown() {
   const value = input.value.toLowerCase();
   dropdown.innerHTML = "";
 
-  const filtered = skills.filter(
-    skill => skill.toLowerCase().includes(value)
-  );
+  skills
+    .filter(skill => skill.toLowerCase().includes(value))
+    .forEach(skill => {
+      const item = document.createElement("div");
+      item.textContent = skill;
+      item.className = "px-4 py-2 cursor-pointer hover:bg-indigo-100";
 
-  filtered.forEach(skill => {
-    const div = document.createElement("div");
-    div.textContent = skill;
-    div.className = "px-4 py-2 cursor-pointer hover:bg-indigo-100";
-
-    div.onclick = () => addSkill(skill);
-    dropdown.appendChild(div);
-  });
+      item.addEventListener("click", () => addSkill(skill));
+      dropdown.appendChild(item);
+    });
 
   dropdown.classList.remove("hidden");
 }
 
-// Add skill
+/* Add skill */
 function addSkill(skill) {
   if (selectedSkills.includes(skill)) return;
 
   selectedSkills.push(skill);
-  updateUI();
+  updateSkillsUI();
+
   input.value = "";
-  dropdown.classList.add("hidden");
+  input.focus();
 }
 
-// Update tags + hidden input
-function updateUI() {
+/* Remove skill */
+function removeSkill(skill) {
+  selectedSkills = selectedSkills.filter(s => s !== skill);
+  updateSkillsUI();
+}
+
+/* Update UI + hidden input */
+function updateSkillsUI() {
   container.innerHTML = "";
+
   selectedSkills.forEach(skill => {
     const tag = document.createElement("span");
     tag.className =
       "bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm flex items-center gap-2";
+
     tag.innerHTML = `
       ${skill}
-      <button onclick="removeSkill('${skill}')" class="font-bold">×</button>
+      <button type="button" class="font-bold hover:text-red-600">×</button>
     `;
+
+    tag.querySelector("button").onclick = () => removeSkill(skill);
     container.appendChild(tag);
   });
 
   hiddenInput.value = selectedSkills.join(", ");
 }
 
-// Remove skill
-function removeSkill(skill) {
-  selectedSkills = selectedSkills.filter(s => s !== skill);
-  updateUI();
-}
-
-// Close dropdown on outside click
+/* Close dropdown ONLY when clicking outside skills box */
 document.addEventListener("click", e => {
-  if (!e.target.closest(".relative")) {
+  if (!e.target.closest("#skillsInput") &&
+      !e.target.closest("#skillsDropdown")) {
     dropdown.classList.add("hidden");
   }
 });
 </script>
 
 {% endblock %}
+
 
 
 
