@@ -137,14 +137,17 @@ function togglePassword(icon){
   }
 
   if(field.type === "password"){
-    field.type = "text";
-    icon.classList.add("fa-eye");
-    icon.classList.remove("fa-eye-slash");
-  } else {
-    field.type = "password";
-    icon.classList.add("fa-eye-slash");
-    icon.classList.remove("fa-eye");
-  }
+  // SHOW password
+  field.type = "text";
+  icon.classList.remove("fa-eye");
+  icon.classList.add("fa-eye-slash");
+} else {
+  // HIDE password
+  field.type = "password";
+  icon.classList.remove("fa-eye-slash");
+  icon.classList.add("fa-eye");
+}
+
 }
   const roleSelect = document.getElementById("roleSelect");
 const adminCodeField = document.getElementById("adminCodeField");
@@ -160,6 +163,7 @@ roleSelect.addEventListener("change", function () {
 
 
 {% endblock %}
+
 
 
 
