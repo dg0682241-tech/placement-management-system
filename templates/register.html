@@ -137,11 +137,11 @@ function togglePassword(icon){
   }
 
   if(field.type === "password"){
-    field.type = "text";
+    field.type = "password";
     icon.classList.remove("fa-eye");
     icon.classList.add("fa-eye-slash");
   } else {
-    field.type = "password";
+    field.type = "text";
     icon.classList.remove("fa-eye-slash");
     icon.classList.add("fa-eye");
   }
@@ -160,6 +160,7 @@ roleSelect.addEventListener("change", function () {
 
 
 {% endblock %}
+
 
 
 
