@@ -5,7 +5,7 @@
 <div class="mb-10 max-w-6xl mx-auto px-4">
 
   <!-- Page Heading -->
-  <h2 class="text-4xl font-extrabold text-black dark:text-white mb-8 text-center animate-fade-in">
+  <h2 class="text-4xl font-extrabold text-black dark:text-gray-100 mb-8 text-center animate-fade-in">
     👩‍🎓 Manage Students
   </h2>
 
@@ -14,7 +14,7 @@
 
     <input list="experienceOptions" type="text" placeholder="Experience"
            id="searchExperience"
-           class="bg-white/40 dark:bg-gray-800/60 backdrop-blur-md border border-white/60 dark:border-gray-500 rounded-lg p-2 outline-none text-sm text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400">
+           class="bg-white/40 dark:bg-gray-800/70 backdrop-blur-md border border-white/60 dark:border-gray-500 rounded-lg p-2 outline-none text-sm text-gray-800 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400">
     <datalist id="experienceOptions">
       <option value="0-1 years">
       <option value="1-2 years">
@@ -25,7 +25,7 @@
 
     <input list="courseOptions" type="text" placeholder="Course"
            id="searchCourse"
-           class="bg-white/40 dark:bg-gray-800/60 backdrop-blur-md border border-white/60 dark:border-gray-500 rounded-lg p-2 outline-none text-sm text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400">
+           class="bg-white/40 dark:bg-gray-800/70 backdrop-blur-md border border-white/60 dark:border-gray-500 rounded-lg p-2 outline-none text-sm text-gray-800 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400">
     <datalist id="courseOptions">
       <option value="B.Tech">
       <option value="M.Tech">
@@ -38,7 +38,7 @@
 
     <input list="branchOptions" type="text" placeholder="Branch"
            id="searchBranch"
-           class="bg-white/40 dark:bg-gray-800/60 backdrop-blur-md border border-white/60 dark:border-gray-500 rounded-lg p-2 outline-none text-sm text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400">
+           class="bg-white/40 dark:bg-gray-800/70 backdrop-blur-md border border-white/60 dark:border-gray-500 rounded-lg p-2 outline-none text-sm text-gray-800 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400">
     <datalist id="branchOptions">
       <option value="Computer Science">
       <option value="Electrical">
@@ -52,7 +52,7 @@
 
     <input list="cgpaSkillOptions" type="text" placeholder="CGPA / Skill"
            id="searchCgpaSkill"
-           class="bg-white/40 dark:bg-gray-800/60 backdrop-blur-md border border-white/60 dark:border-gray-500 rounded-lg p-2 outline-none text-sm text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400">
+           class="bg-white/40 dark:bg-gray-800/70 backdrop-blur-md border border-white/60 dark:border-gray-500 rounded-lg p-2 outline-none text-sm text-gray-800 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400">
     <datalist id="cgpaSkillOptions">
       <option value="8.0+ CGPA">
       <option value="7.0+ CGPA">
@@ -82,13 +82,14 @@
   <!-- Student Cards -->
   <div id="studentContainer" class="space-y-6">
     {% for s in students %}
-    <div class="student-card bg-white/40 dark:bg-gray-800/60 backdrop-blur-md border border-white/30 dark:border-gray-600 p-6 rounded-xl shadow-lg relative
-                text-gray-800 dark:text-gray-200">
+    <div class="student-card bg-white/40 dark:bg-gray-800/70 backdrop-blur-md
+                border border-white/30 dark:border-gray-600 p-6 rounded-xl shadow-lg relative
+                text-gray-800 dark:text-gray-100">
 
       <!-- Card Header -->
       <div class="flex justify-between items-start">
         <div>
-          <h3 class="text-xl font-bold">{{ s['username'] }}</h3>
+          <h3 class="text-xl font-bold dark:text-gray-100">{{ s['username'] }}</h3>
           <p class="text-gray-700 dark:text-gray-300">{{ s['email'] }}</p>
         </div>
         <div class="flex gap-2">
@@ -103,16 +104,17 @@
 
       <!-- Card Fields -->
       <div class="mt-4 grid grid-cols-2 gap-4">
-        <p class="field experience"><b>Experience:</b> {{ s['experience']|default('N/A') }}</p>
-        <p class="field course"><b>Course:</b> {{ s['course']|default('N/A') }}</p>
-        <p class="field branch"><b>Branch:</b> {{ s['branch']|default('N/A') }}</p>
-        <p class="field cgpa-skill"><b>CGPA / Skills:</b> {{ s['cgpa'] }} / {{ s['skills'] }}</p>
+        <p class="field experience dark:text-gray-200"><b>Experience:</b> {{ s['experience']|default('N/A') }}</p>
+        <p class="field course dark:text-gray-200"><b>Course:</b> {{ s['course']|default('N/A') }}</p>
+        <p class="field branch dark:text-gray-200"><b>Branch:</b> {{ s['branch']|default('N/A') }}</p>
+        <p class="field cgpa-skill dark:text-gray-200"><b>CGPA / Skills:</b> {{ s['cgpa'] }} / {{ s['skills'] }}</p>
       </div>
 
       <!-- Details Panel -->
       <div class="details-panel mt-4 p-4 rounded-lg hidden
-                  bg-white/80 dark:bg-gray-900/80 shadow-lg">
-        <h4 class="font-bold text-lg mb-2">Profile Info</h4>
+                  bg-white/90 dark:bg-gray-900 shadow-lg
+                  text-gray-800 dark:text-gray-200">
+        <h4 class="font-bold text-lg mb-2 dark:text-gray-100">Profile Info</h4>
 
         <div class="grid grid-cols-2 gap-4 mb-4">
           <p><b>Phone:</b> {{ s['phone']|default('N/A') }}</p>
@@ -122,9 +124,9 @@
           <p class="col-span-2"><b>Bio:</b> {{ s['bio']|default('N/A') }}</p>
         </div>
 
-        <h4 class="font-bold text-lg mb-2">Applications</h4>
+        <h4 class="font-bold text-lg mb-2 dark:text-gray-100">Applications</h4>
         <table class="w-full text-sm border border-gray-300 dark:border-gray-700">
-          <thead class="bg-gray-200 dark:bg-gray-800">
+          <thead class="bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
             <tr>
               <th class="border px-2 py-1">Company</th>
               <th class="border px-2 py-1">Role</th>
@@ -132,7 +134,7 @@
               <th class="border px-2 py-1">Resume</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="dark:text-gray-200">
             {% for a in s['applications'] %}
             <tr>
               <td class="border px-2 py-1">{{ a['company'] }}</td>
@@ -154,46 +156,4 @@
     {% endfor %}
   </div>
 </div>
-
-<script>
-const searchBtn = document.getElementById("searchBtn");
-const loader = document.getElementById("searchLoader");
-
-searchBtn.addEventListener("click", () => {
-  loader.classList.remove("hidden");
-
-  setTimeout(() => {
-    const exp = searchExperience.value.toLowerCase();
-    const course = searchCourse.value.toLowerCase();
-    const branch = searchBranch.value.toLowerCase();
-    const cgpaSkill = searchCgpaSkill.value.toLowerCase();
-
-    document.querySelectorAll(".student-card").forEach(card => {
-      const match =
-        card.dataset.eligibility.toLowerCase().includes(exp) ||
-        card.dataset.course.toLowerCase().includes(course) ||
-        card.dataset.branch.toLowerCase().includes(branch) ||
-        card.dataset.cgpa.toLowerCase().includes(cgpaSkill) ||
-        card.dataset.skills.toLowerCase().includes(cgpaSkill);
-
-      card.style.display = (!exp && !course && !branch && !cgpaSkill) || match ? "block" : "none";
-    });
-
-    loader.classList.add("hidden");
-  }, 600);
-});
-
-document.querySelectorAll(".details-btn").forEach(btn => {
-  btn.onclick = e => e.target.closest(".student-card")
-    .querySelector(".details-panel").classList.toggle("hidden");
-});
-
-document.querySelectorAll(".remove-btn").forEach(btn => {
-  btn.onclick = e => {
-    const card = e.target.closest(".student-card");
-    card.style.opacity = "0";
-    setTimeout(() => card.remove(), 400);
-  };
-});
-</script>
 {% endblock %}
