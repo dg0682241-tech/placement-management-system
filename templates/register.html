@@ -121,26 +121,7 @@
 
 <!-- ADMIN ROLE TOGGLE -->
 <script>
-function togglePassword(icon) {
-  const field = document.getElementById(icon.dataset.target);
-  if (!field) return;
-
-  // 1️⃣ Toggle password visibility FIRST
-  field.type = field.type === "password" ? "text" : "password";
-
-  // 2️⃣ NOW set icon based on CURRENT state
-  if (field.type === "text") {
-    // Password is visible → show EYE
-    icon.className =
-      "fa-solid fa-eye eye-icon absolute right-3 top-3 text-gray-500 cursor-pointer";
-  } else {
-    // Password is hidden → show EYE-SLASH
-    icon.className =
-      "fa-solid fa-eye-slash eye-icon absolute right-3 top-3 text-gray-500 cursor-pointer";
-  }
-}
-  
-  const roleSelect = document.getElementById("roleSelect");
+const roleSelect = document.getElementById("roleSelect");
 const adminCodeField = document.getElementById("adminCodeField");
 
 roleSelect.addEventListener("change", function () {
@@ -154,6 +135,7 @@ roleSelect.addEventListener("change", function () {
 
 
 {% endblock %}
+
 
 
 
