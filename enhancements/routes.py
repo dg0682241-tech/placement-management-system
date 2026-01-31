@@ -1162,7 +1162,7 @@ def view_student_profile(user_id):
         is_admin=True,
         home_url=url_for("enhancements.admin_dashboard"),
         show_back_button=True,
-        back_url=url_for("enhancements.students")
+        back_url=url_for("enhancements.admin_students")
     )
 
 @enhancements_bp.route("/admin/placements")
@@ -1647,6 +1647,7 @@ def admin_questions1_message():
     reply = chat_with_ai(user_message, role="admin")
 
     return jsonify({"reply": reply})
+
 
 
 
