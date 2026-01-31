@@ -159,29 +159,28 @@ resumeInput.addEventListener("change", function () {
     this.value = ""; // clear file input
   }
 });
-  const skillsInput = document.getElementById("skillsInput");
+const skillsInput = document.getElementById("skillsInput");
 const skillsList = document.getElementById("skillsList");
 
 skillsInput.addEventListener("input", () => {
   const value = skillsInput.value;
+  const parts = value.split(",");
+  const lastPart = parts[parts.length - 1].trim();
 
-  // If user selected from dropdown (no comma yet)
-  if (skillsList.querySelector(`option[value="${value.trim()}"]`)) {
-    skillsInput.value = value + ", ";
-  }
-});
+  // If last word matches a datalist option
+  const match = [...skillsList.options].find(
+    option => option.value.toLowerCase() === lastPart.toLowerCase()
+  );
 
-// Keep dropdown usable after comma
-skillsInput.addEventListener("keydown", (e) => {
-  if (e.key === "," || e.key === " ") {
-    setTimeout(() => {
-      skillsInput.dispatchEvent(new Event("input"));
-    }, 0);
+  if (match) {
+    parts[parts.length - 1] = " " + match.value;
+    skillsInput.value = parts.join(",").replace(/^,/, "").trim() + ", ";
   }
 });
 </script>
 
 {% endblock %}
+
 
 
 
