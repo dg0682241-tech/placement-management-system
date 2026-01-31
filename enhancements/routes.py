@@ -881,6 +881,12 @@ def logout():
     flash("You have been logged out.", "info")
     return redirect(url_for("enhancements.login"))
 
+
+@enhancements_bp.route("/courses")
+def courses():
+    return redirect(url_for("enhancements.courses"))
+
+
 #---------about--------
 @enhancements_bp.route("/about")
 def about():
@@ -1641,6 +1647,7 @@ def admin_questions1_message():
     reply = chat_with_ai(user_message, role="admin")
 
     return jsonify({"reply": reply})
+
 
 
 
