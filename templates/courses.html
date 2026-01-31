@@ -1,1 +1,193 @@
+{% extends "base.html" %}
+{% block title %}Course Suggestions{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 py-10">
+
+  <!-- Heading -->
+  <h1 class="text-4xl font-bold text-black dark:text-white text-center mb-2">
+    📚 Course Suggestions
+  </h1>
+
+  <p class="text-center text-gray-700 dark:text-gray-300 mb-8">
+    Curated learning paths based on top companies, roles, and required skills.
+    Learn from trusted and famous educators.
+  </p>
+
+  <!-- Search + Filter -->
+  <div class="flex flex-col md:flex-row gap-4 mb-8">
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="Search course, topic or video..."
+      class="w-full md:w-2/3 px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700
+             bg-white dark:bg-gray-900 text-black dark:text-white focus:outline-none"
+    />
+
+    <select
+      id="companyFilter"
+      class="w-full md:w-1/3 px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700
+             bg-white dark:bg-gray-900 text-black dark:text-white focus:outline-none"
+    >
+      <option value="all">All Companies / Roles</option>
+      <option value="software">Software / IT</option>
+      <option value="analytics">Data / Analytics</option>
+      <option value="cloud">Cloud / SAP / ERP</option>
+      <option value="mba">MBA / HR / Finance</option>
+      <option value="aptitude">Aptitude / Communication</option>
+      <option value="govt">Govt / Research</option>
+    </select>
+  </div>
+
+  <!-- Courses -->
+  <div id="coursesContainer" class="space-y-6">
+
+    <!-- SOFTWARE / IT -->
+    <div class="course-card" data-category="software">
+      <button onclick="toggleCourse(this)"
+        class="w-full text-left bg-gradient-to-r from-blue-600 to-indigo-700
+               text-white px-6 py-4 rounded-2xl font-semibold text-xl">
+        💻 Software Development (Google, Microsoft, Infosys, TCS)
+      </button>
+
+      <div class="hidden mt-4 space-y-3">
+        <a href="https://www.youtube.com/watch?v=rfscVS0vtbw" target="_blank"
+           class="block p-4 rounded-xl bg-gray-100 dark:bg-gray-800 hover:scale-[1.02] transition">
+          Python Full Course – FreeCodeCamp
+        </a>
+        <a href="https://www.youtube.com/watch?v=8PopR3x-VMY" target="_blank"
+           class="block p-4 rounded-xl bg-gray-100 dark:bg-gray-800 hover:scale-[1.02] transition">
+          Data Structures – Abdul Bari
+        </a>
+        <a href="https://www.youtube.com/watch?v=ZxKM3DCV2kE" target="_blank"
+           class="block p-4 rounded-xl bg-gray-100 dark:bg-gray-800 hover:scale-[1.02] transition">
+          Operating Systems – Gate Smashers
+        </a>
+        <a href="https://www.youtube.com/watch?v=9hE5f7Vw0l4" target="_blank"
+           class="block p-4 rounded-xl bg-gray-100 dark:bg-gray-800 hover:scale-[1.02] transition">
+          DBMS – CodeHelp (Love Babbar)
+        </a>
+      </div>
+    </div>
+
+    <!-- DATA / ANALYTICS -->
+    <div class="course-card" data-category="analytics">
+      <button onclick="toggleCourse(this)"
+        class="w-full text-left bg-gradient-to-r from-green-600 to-emerald-700
+               text-white px-6 py-4 rounded-2xl font-semibold text-xl">
+        📊 Data Analytics (Deloitte, Zomato, Flipkart, ISRO)
+      </button>
+
+      <div class="hidden mt-4 space-y-3">
+        <a href="https://www.youtube.com/watch?v=GPVsHOlRBBI" target="_blank"
+           class="block p-4 rounded-xl bg-gray-100 dark:bg-gray-800">
+          Data Analytics Full Course – Alex The Analyst
+        </a>
+        <a href="https://www.youtube.com/watch?v=HXV3zeQKqGY" target="_blank"
+           class="block p-4 rounded-xl bg-gray-100 dark:bg-gray-800">
+          SQL Tutorial – Programming with Mosh
+        </a>
+        <a href="https://www.youtube.com/watch?v=0P7QnIQDBJY" target="_blank"
+           class="block p-4 rounded-xl bg-gray-100 dark:bg-gray-800">
+          Power BI – Simplilearn
+        </a>
+      </div>
+    </div>
+
+    <!-- CLOUD / SAP -->
+    <div class="course-card" data-category="cloud">
+      <button onclick="toggleCourse(this)"
+        class="w-full text-left bg-gradient-to-r from-teal-600 to-cyan-700
+               text-white px-6 py-4 rounded-2xl font-semibold text-xl">
+        ☁ Cloud / SAP / ERP (IBM, Capgemini, SAP, Oracle)
+      </button>
+
+      <div class="hidden mt-4 space-y-3">
+        <a href="https://www.youtube.com/watch?v=ulprqHHWlng" target="_blank"
+           class="block p-4 rounded-xl bg-gray-100 dark:bg-gray-800">
+          AWS Full Course – FreeCodeCamp
+        </a>
+        <a href="https://www.youtube.com/watch?v=HVjjoMvutj4" target="_blank"
+           class="block p-4 rounded-xl bg-gray-100 dark:bg-gray-800">
+          SAP FICO – Techy ERP
+        </a>
+        <a href="https://www.youtube.com/watch?v=1p9p0uZz0ZY" target="_blank"
+           class="block p-4 rounded-xl bg-gray-100 dark:bg-gray-800">
+          Oracle ERP – Simplilearn
+        </a>
+      </div>
+    </div>
+
+    <!-- MBA / HR / FINANCE -->
+    <div class="course-card" data-category="mba">
+      <button onclick="toggleCourse(this)"
+        class="w-full text-left bg-gradient-to-r from-purple-600 to-pink-700
+               text-white px-6 py-4 rounded-2xl font-semibold text-xl">
+        💼 MBA / HR / Finance (HUL, EY, KPMG, Accenture)
+      </button>
+
+      <div class="hidden mt-4 space-y-3">
+        <a href="https://www.youtube.com/watch?v=ZK-rNEhJIDs" target="_blank"
+           class="block p-4 rounded-xl bg-gray-100 dark:bg-gray-800">
+          Financial Management – CA Rachana Ranade
+        </a>
+        <a href="https://www.youtube.com/watch?v=K9B2pR2f0aY" target="_blank"
+           class="block p-4 rounded-xl bg-gray-100 dark:bg-gray-800">
+          HR Management – NPTEL
+        </a>
+      </div>
+    </div>
+
+    <!-- APTITUDE -->
+    <div class="course-card" data-category="aptitude">
+      <button onclick="toggleCourse(this)"
+        class="w-full text-left bg-gradient-to-r from-yellow-500 to-orange-600
+               text-white px-6 py-4 rounded-2xl font-semibold text-xl">
+        🧠 Aptitude & Communication
+      </button>
+
+      <div class="hidden mt-4 space-y-3">
+        <a href="https://www.youtube.com/watch?v=7o4v9sM1w9E" target="_blank"
+           class="block p-4 rounded-xl bg-gray-100 dark:bg-gray-800">
+          Quantitative Aptitude – CareerRide
+        </a>
+        <a href="https://www.youtube.com/watch?v=VJbq2Vf1V5g" target="_blank"
+           class="block p-4 rounded-xl bg-gray-100 dark:bg-gray-800">
+          Communication Skills – Skillopedia
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Scripts -->
+<script>
+function toggleCourse(btn) {
+  btn.nextElementSibling.classList.toggle("hidden");
+}
+
+const searchInput = document.getElementById("searchInput");
+const companyFilter = document.getElementById("companyFilter");
+const courses = document.querySelectorAll(".course-card");
+
+function filterCourses() {
+  const search = searchInput.value.toLowerCase();
+  const filter = companyFilter.value;
+
+  courses.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    const category = card.dataset.category;
+
+    const matchSearch = text.includes(search);
+    const matchCategory = filter === "all" || filter === category;
+
+    card.style.display = (matchSearch && matchCategory) ? "block" : "none";
+  });
+}
+
+searchInput.addEventListener("input", filterCourses);
+companyFilter.addEventListener("change", filterCourses);
+</script>
+{% endblock %}
 
