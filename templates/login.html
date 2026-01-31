@@ -76,25 +76,10 @@
   </div>
 </div>
 
-<script>
-function togglePassword(icon) {
-  const field = document.getElementById(icon.dataset.target);
-  if (!field) return;
-
-  const isHidden = field.type === "password";
-
-  // Toggle password visibility
-  field.type = isHidden ? "text" : "password";
-
-  // Force correct icon (NO toggle guessing)
-  icon.className = isHidden
-    ? "fa-solid fa-eye eye-icon absolute right-3 top-3 text-gray-500 cursor-pointer"
-    : "fa-solid fa-eye-slash eye-icon absolute right-3 top-3 text-gray-500 cursor-pointer";
-}
-</script>
 
 
 {% endblock %}
+
 
 
 
