@@ -1,19 +1,5 @@
 
 "use strict";
-const coursesData = {
-  python: [
-    { title: "Python Full Course – Beginner to Advanced", link: "https://www.youtube.com/watch?v=rfscVS0vtbw" },
-    { title: "Python OOP Concepts", link: "https://www.youtube.com/watch?v=Ej_02ICOIgs" }
-  ],
-  dsa: [
-    { title: "DSA Full Course", link: "https://www.youtube.com/watch?v=8hly31xKli0" },
-    { title: "DSA with Python", link: "https://www.youtube.com/watch?v=pkYVOmU3MgA" }
-  ],
-  web: [
-    { title: "Full Stack Web Development", link: "https://www.youtube.com/watch?v=nu_pCVPKzTk" }
-  ]
-};
-
 /* PRACTICE QUESTIONS */
 const practiceData = {
 coding:[
