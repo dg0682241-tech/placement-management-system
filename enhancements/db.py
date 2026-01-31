@@ -185,15 +185,15 @@ def init_db():
  "Support organizational transformation through technology adoption strategies.",
  "MBA (HR)", "₹8–12 LPA", "Full-Time", "NA", "2025-12-21",
  "accenture.png", "https://www.accenture.com"),
-
+("Meesho", "Marketplace Quality Executive", "Remote", "Ensure seller quality standards and improve catalog accuracy.", "BA / B.Com", "₹4–6 LPA", "Part-Time", "NA", "2025-08-25", "meesho.png", "https://careers.meesho.com"),
 ("IBM", "Blockchain Developer", "Bangalore",
  "Design and implement blockchain-based enterprise solutions.",
  "B.Tech (CS)", "₹12–20 LPA", "Full-Time", "2 Years", "2025-12-07",
  "ibm.png", "https://www.ibm.com"),
-
+("Adobe", "Visual Design Intern", "Remote", "Create illustrations, layouts, and marketing creatives for Adobe products.", "B.Des / BFA", "₹35k/month", "Internship", "6 Months", "2025-12-27", "adobe.png", "https://adobe.wd5.myworkdayjobs.com"),
 ("Deloitte", "Risk Advisory Associate", "Mumbai",
  "Assist clients in managing technology and compliance-related risks.",
- "B.Com / MBA", "₹9–13 LPA", "Full-Time", "NA", "2025-12-06",
+ "B.Com / MBA", "₹9–13 LPA", "Part-Time", "NA", "2025-12-06",
  "deloitte.png", "https://www.deloitte.com"),
 
 ("Capgemini", "Cloud Migration Engineer", "Noida",
@@ -223,7 +223,7 @@ def init_db():
 
 ("Zomato", "Restaurant Growth Analyst", "Delhi",
  "Analyze restaurant data and improve partner onboarding success.",
- "BBA (Marketing)", "₹8–13 LPA", "Full-Time", "NA", "2025-12-11",
+ "BBA (Marketing)", "₹8–13 LPA", "Remote", "NA", "2025-12-11",
  "zomato.png", "https://www.zomato.com/careers"),
 
 ("ISRO", "Satellite Data Analyst", "Sriharikota",
@@ -235,11 +235,6 @@ def init_db():
  "Implement and customize Oracle ERP solutions for global clients.",
  "MBA (Finance)", "₹11–18 LPA", "Full-Time", "1 Year", "2025-12-20",
  "oracle.png", "https://www.oracle.com/careers"),
-
-("SAP", "ABAP Developer", "Gurgaon",
- "Develop custom SAP programs and reports using ABAP.",
- "B.Tech (IT)", "₹9–14 LPA", "Full-Time", "NA", "2025-12-24",
- "sap.png", "https://jobs.sap.com"),
 
 ("Zoho", "Business Intelligence Analyst", "Coimbatore",
  "Build dashboards and reports to support business decisions.",
@@ -259,16 +254,7 @@ def init_db():
 ("Meesho", "Marketplace Quality Executive", "Remote",
  "Ensure seller quality standards and improve catalog accuracy.",
  "BA / B.Com", "₹4–6 LPA", "Part-Time", "NA", "2025-08-25",
- "meesho.png", "https://careers.meesho.com"),
-            ("HDFC Bank", "Digital Banking Executive", "Mumbai",
- "Support digital banking operations, customer onboarding, and platform analytics.",
- "BBA / B.Com", "₹4–7 LPA", "Full-Time", "NA", "2025-09-15",
- "hdfc.png", "https://www.hdfcbank.com/careers"),
-
-("ICICI Bank", "Credit Operations Analyst", "Hyderabad",
- "Evaluate credit documentation and support loan processing teams.",
- "B.Com / BBA", "₹4–6 LPA", "Full-Time", "NA", "2025-09-18",
- "icici.png", "https://www.icicicareers.com"),
+ "meesho.png", "https://careers.meesho.com"),,
 
 ("Infosys BPM", "Process Executive", "Bangalore",
  "Handle business process operations and client support services.",
@@ -318,7 +304,7 @@ def init_db():
 ("Reliance Jio", "Retail Store Manager", "Indore",
  "Manage retail store operations and customer engagement.",
  "BBA / Diploma (Management)", "₹4–7 LPA", "Full-Time", "NA", "2025-08-18",
- "jio.png", "https://careers.jio.com"),
+ "relience.png", "https://careers.jio.com"),
 
 ("Flipkart", "Vendor Support Executive", "Bangalore",
  "Support sellers with catalog onboarding and compliance processes.",
@@ -329,11 +315,6 @@ def init_db():
  "Plan inventory demand and reduce supply shortages.",
  "B.Sc (Maths/Statistics)", "₹6–9 LPA", "Full-Time", "NA", "2025-10-02",
  "swiggy.png", "https://careers.swiggy.com"),
-
-("Axis Bank", "Customer Experience Officer", "Lucknow",
- "Improve customer satisfaction and resolve service issues.",
- "BA / B.Com", "₹4–6 LPA", "Full-Time", "NA", "2025-08-10",
- "axis.png", "https://www.axisbank.com/careers"),
 
 ("HCL Technologies", "IT Service Desk Analyst", "Nagpur",
  "Handle IT incidents and service requests for enterprise clients.",
@@ -360,13 +341,8 @@ def init_db():
  "BBA / B.Com", "₹4–7 LPA", "Full-Time", "NA", "2025-09-15",
  "hdfc.png", "https://www.hdfcbank.com/careers"),
 
-("ICICI Bank", "Credit Operations Analyst", "Hyderabad",
- "Evaluate credit documentation and support loan processing teams.",
- "B.Com / BBA", "₹4–6 LPA", "Full-Time", "NA", "2025-09-18",
- "icici.png", "https://www.icicicareers.com"),
 
-
-            ("Tech Mahindra", "Software Support Engineer", "Nagpur",
+ ("Tech Mahindra", "Software Support Engineer", "Nagpur",
  "Handle application support and basic development tasks.",
  "BCA", "₹3–5 LPA", "Full-Time", "NA", "2025-08-18",
  "techmahindra.png", "https://careers.techmahindra.com"),
@@ -444,7 +420,7 @@ def init_db():
 ("Reliance Jio", "Retail Store Manager", "Indore",
  "Manage retail store operations and customer engagement.",
  "BBA / Diploma (Management)", "₹4–7 LPA", "Full-Time", "NA", "2025-08-18",
- "jio.png", "https://careers.jio.com"),
+ "relience.png", "https://careers.jio.com"),
 
 ("Flipkart", "Vendor Support Executive", "Bangalore",
  "Support sellers with catalog onboarding and compliance processes.",
@@ -481,7 +457,7 @@ def init_db():
  "BBA / Any Graduate", "₹5–8 LPA", "Full-Time", "NA", "2025-09-28",
  "tatamotors.png", "https://careers.tatamotors.com"),
 
-            ("Oracle", "Associate Application Developer", "Bangalore",
+("Oracle", "Associate Application Developer", "Bangalore",
  "Support development of database-driven enterprise applications.",
  "BCA", "₹7–10 LPA", "Full-Time", "NA", "2025-10-12",
  "oracle.png", "https://www.oracle.com/careers"),
@@ -507,6 +483,7 @@ def init_db():
  "ltts.png", "https://www.ltts.com/careers")
     ])
     db.commit()
+
 
 
 
