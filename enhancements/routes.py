@@ -18,7 +18,6 @@ from flask import (
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from .resume_checker import analyze_resume
 from .db import get_db_conn  # ✅ central db helpers
 enhancements_bp = Blueprint("enhancements", __name__, template_folder="../templates")
 
@@ -98,105 +97,6 @@ def chat_with_ai(user_message, role="student"):
 
     r.raise_for_status()
     return r.json()["choices"][0]["message"]["content"]
-
-
-HUGGINGFACE_API_KEY = os.getenv("HUGGINGFACE_API_KEY")
-HF_MODEL = "google/flan-t5-base"
-
-def call_huggingface(prompt):
-    url = f"https://api-inference.huggingface.co/models/{HF_MODEL}"
-    headers = {
-        "Authorization": f"Bearer {HUGGINGFACE_API_KEY}"
-    }
-    payload = {
-        "inputs": prompt,
-        "parameters": {
-            "max_new_tokens": 300
-        }
-    }
-
-    r = requests.post(url, headers=headers, json=payload, timeout=30)
-    r.raise_for_status()
-    data = r.json()
-
-    if isinstance(data, list):
-        return data[0].get("generated_text", "")
-    return "Unable to analyze resume."
-
-@enhancements_bp.route("/check_resume", methods=["POST"])
-def check_resume():
-    try:
-        if "resume" not in request.files:
-            return jsonify({"error": "No resume uploaded"}), 400
-
-        user_id = session.get("user_id")
-        if not user_id:
-            return jsonify({"error": "Login required"}), 401
-
-        file = request.files["resume"]
-        filename = secure_filename(file.filename)
-
-        save_path = os.path.join(
-            get_upload_folder(),
-            f"{int(datetime.utcnow().timestamp())}_{filename}"
-        )
-        file.save(save_path)
-
-        # ---- BASIC LOCAL ANALYSIS ----
-        from enhancements.resume_checker import analyze_resume
-        local_result = analyze_resume(save_path)
-
-        # ---- HUGGINGFACE ATS ----
-        hf_feedback = "AI feedback unavailable."
-        if HUGGINGFACE_API_KEY:
-            prompt = f"""
-You are an ATS resume checker.
-Give feedback in bullet points and improvement suggestions.
-
-Resume analysis:
-{json.dumps(local_result)}
-"""
-            try:
-                hf_feedback = call_huggingface(prompt)
-            except Exception:
-                pass  # silently fail AI, do NOT break UI
-
-        # ---- SAVE TO DB ----
-        conn = get_db_conn()
-        cur = conn.cursor()
-        cur.execute(
-            """
-            INSERT INTO resumes (user_id, filename, storage_path, verdict, details)
-            VALUES (?, ?, ?, ?, ?)
-            """,
-            (
-                user_id,
-                filename,
-                save_path,
-                local_result.get("verdict"),
-                json.dumps({
-                    "basic": local_result,
-                    "hf_feedback": hf_feedback
-                })
-            )
-        )
-        conn.commit()
-        conn.close()
-
-        # ---- RESPONSE MATCHES JS ----
-        return jsonify({
-            "result": f"""
-ATS Verdict: {local_result.get("verdict")}
-
-Score: {local_result.get("score_percent", "N/A")}%
-
-AI Feedback:
-{hf_feedback}
-"""
-        })
-
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
 
 # ------------------ Auth pages ------------------
 @enhancements_bp.route("/register", methods=["GET", "POST"])
@@ -1741,5 +1641,6 @@ def admin_questions1_message():
     reply = chat_with_ai(user_message, role="admin")
 
     return jsonify({"reply": reply})
+
 
 
