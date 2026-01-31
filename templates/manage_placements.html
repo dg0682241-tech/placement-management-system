@@ -5,11 +5,10 @@
 
   <!-- Top Header Row -->
   <div class="max-w-6xl mx-auto flex justify-between items-center mb-6 px-5">
-    <h2 class="text-3xl font-extrabold text-black dark:text-white">
+    <h2 class="text-3xl font-extrabold text-black dark:text-gray-100">
       📌 Manage Placements
     </h2>
 
-    <!-- Add New Company Button -->
     <a href="{{ url_for('enhancements.add_placement') }}"
        class="flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
       <span class="text-lg">➕</span>
@@ -20,9 +19,9 @@
   <!-- 🔍 Search Filters -->
   <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-4 px-2">
 
-    <input list="companyOptions" id="searchCompany" placeholder="Company"
-           class="p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white/40 dark:bg-gray-800/60 text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400 backdrop-blur-sm">
+    {% set input_classes = "p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white/40 dark:bg-gray-800/80 text-gray-800 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 backdrop-blur-sm caret-gray-900 dark:caret-gray-100 dark:[color-scheme:dark]" %}
 
+    <input list="companyOptions" id="searchCompany" placeholder="Company" class="{{ input_classes }}">
     <datalist id="companyOptions">
       <option value="Google">
       <option value="Microsoft">
@@ -34,8 +33,7 @@
       <option value="Wipro">
     </datalist>
 
-    <input list="roleOptions" id="searchRole" placeholder="Role / Job Type"
-           class="p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white/40 dark:bg-gray-800/60 text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400 backdrop-blur-sm">
+    <input list="roleOptions" id="searchRole" placeholder="Role / Job Type" class="{{ input_classes }}">
     <datalist id="roleOptions">
       <option value="Internship">
       <option value="Full-time">
@@ -43,8 +41,7 @@
       <option value="Contract">
     </datalist>
 
-    <input list="locationOptions" id="searchLocation" placeholder="Location"
-           class="p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white/40 dark:bg-gray-800/60 text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400 backdrop-blur-sm">
+    <input list="locationOptions" id="searchLocation" placeholder="Location" class="{{ input_classes }}">
     <datalist id="locationOptions">
       <option value="Pune">
       <option value="Kolkata">
@@ -56,8 +53,7 @@
       <option value="Chennai">
     </datalist>
 
-    <input list="eligibilityOptions" id="searchEligibility" placeholder="Eligibility"
-           class="p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white/40 dark:bg-gray-800/60 text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400 backdrop-blur-sm">
+    <input list="eligibilityOptions" id="searchEligibility" placeholder="Eligibility" class="{{ input_classes }}">
     <datalist id="eligibilityOptions">
       <option value="BCA">
       <option value="MCA">
@@ -66,11 +62,9 @@
       <option value="Any">
     </datalist>
 
-    <input id="searchSalary" placeholder="Salary / Stipend"
-           class="p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white/40 dark:bg-gray-800/60 text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400 backdrop-blur-sm">
+    <input id="searchSalary" placeholder="Salary / Stipend" class="{{ input_classes }}">
 
-    <input id="searchDeadline" type="date"
-           class="p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white/40 dark:bg-gray-800/60 text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400 backdrop-blur-sm">
+    <input id="searchDeadline" type="date" class="{{ input_classes }}">
 
   </div>
 
@@ -84,7 +78,8 @@
     {% for p in placements %}
     {% set logo_file = p.company|lower|replace(' ', '') ~ '.png' %}
 
-    <div class="placement-card bg-white/40 dark:bg-gray-800/60 backdrop-blur-sm border border-white/30 dark:border-gray-600 p-6 rounded-2xl shadow-lg transition"
+    <div class="placement-card bg-white/40 dark:bg-gray-800/80 backdrop-blur-sm border border-white/30 dark:border-gray-600 p-6 rounded-2xl shadow-lg transition
+                text-gray-700 dark:text-gray-100"
          data-company="{{ p.company|lower }}"
          data-role="{{ p.role|lower }}"
          data-location="{{ p.location|lower }}"
@@ -103,20 +98,19 @@
         </div>
       </div>
 
-      <p class="text-sm text-gray-500 dark:text-gray-400">📍 {{ p.location }}</p>
-      <p class="text-sm text-gray-500 dark:text-gray-400">💰 {{ p.salary or "Not disclosed" }}</p>
-      <p class="text-sm text-gray-500 dark:text-gray-400">📅 {{ p.deadline or "N/A" }}</p>
+      <p class="text-sm text-gray-600 dark:text-gray-300">📍 {{ p.location }}</p>
+      <p class="text-sm text-gray-600 dark:text-gray-300">💰 {{ p.salary or "Not disclosed" }}</p>
+      <p class="text-sm text-gray-600 dark:text-gray-300">📅 {{ p.deadline or "N/A" }}</p>
 
-      <p class="text-gray-600 dark:text-gray-200 mt-2">
+      <p class="mt-2 text-gray-700 dark:text-gray-100">
         {{ p.description[:120] }}{% if p.description and p.description|length > 120 %}...{% endif %}
       </p>
 
-      <p class="mt-2 text-sm text-gray-600 dark:text-gray-200">
+      <p class="mt-2 text-sm text-gray-700 dark:text-gray-100">
         <span class="font-semibold">Eligibility:</span>
         {{ p.eligibility or "Not specified" }}
       </p>
 
-      <!-- Actions -->
       <form method="POST"
             action="{{ url_for('enhancements.delete_placement', pid=p.id) }}"
             onsubmit="return confirmDelete(this)"
@@ -155,10 +149,8 @@ function filterPlacements(){
   }, 500);
 }
 
-// Listen to all inputs
 inputs.forEach(i => i.addEventListener("input", filterPlacements));
 
-// Delete confirmation with loader
 function confirmDelete(form){
   loader.classList.remove("hidden");
   setTimeout(() => loader.classList.add("hidden"), 500);
