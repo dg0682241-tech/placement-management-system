@@ -482,13 +482,15 @@ function togglePassword(icon){
   const field = wrapper.querySelector('input');
   if(!field) return;
 
-  if(field.type === "password"){
-    field.type = "text";
-    icon.classList.replace("fa-eye", "fa-eye-slash");
-  } else {
-    field.type = "password";
-    icon.classList.replace("fa-eye-slash", "fa-eye");
-  }
+ if (field.type === "password") {
+  // password is hidden → make it visible
+  field.type = "text";
+  icon.classList.replace("fa-eye-slash", "fa-eye");
+} else {
+  // password is visible → hide it
+  field.type = "password";
+  icon.classList.replace("fa-eye", "fa-eye-slash");
+}
 }
 
 /* ------------------------------
@@ -728,6 +730,7 @@ function resetChat(){
   
 </body>
 </html>
+
 
 
 
