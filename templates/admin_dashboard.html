@@ -4,18 +4,11 @@
 {% block content %}
 <div class="mb-8 text-center animate__animated animate__fadeInUp">
 
- <h1 class="text-4xl font-bold cursor-pointer transition transform 
-           hover:underline hover:scale-103
-           text-black dark:text-white">
-  Welcome back, {{ username }} 👋
-</h1>
-
+<!-- HEADER -->
+<div class="flex justify-center pb-4 animate__animated animate__fadeInUp">
+<!-- Motivation -->
 <p id="admin-typing"
-   class="mt-4 text-xl font-medium text-blue-900 dark:text-white">
-</p>
-
-  <!-- Motivation Message -->
-  <p id="admin-typing" class="mt-4 text-xl font-medium text-blue-900"></p>
+   class="mt-1 text-xl font-medium text-blue-800 dark:text-gray-200 text-center"></p>
 
   <!-- Stats Grid -->
   <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 px-4 max-w-6xl mx-auto">
@@ -23,7 +16,7 @@
     <!-- Students -->
     <a href="/admin/students"
        class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white
-              p-6 rounded-xl shadow-lg hover:scale-105 transition block">
+              p-6 rounded-xl shadow-lg hover:scale-105 transition block animate__animated animate__fadeInLeft">
       <h3 class="text-lg font-bold">🎓 Students Records</h3>
       <p class="text-2xl font-extrabold mt-2">{{ counts.students }}</p>
       <p class="mt-1 text-sm opacity-80">Total registered students</p>
@@ -32,7 +25,7 @@
     <!-- Placements -->
     <a href="/admin/placements"
        class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white
-              p-6 rounded-xl shadow-lg hover:scale-105 transition block">
+              p-6 rounded-xl shadow-lg hover:scale-105 transition block animate__animated animate__fadeInLeft">
       <h3 class="text-lg font-bold">📊 Placements Details</h3>
       <p class="text-2xl font-extrabold mt-2">{{ counts.placements }}</p>
       <p class="mt-1 text-sm opacity-80">Total Placements</p>
@@ -41,7 +34,7 @@
     <!-- Applications -->
     <a href="/admin/applications"
        class="bg-gradient-to-r from-indigo-600 to-blue-700 text-white
-              p-6 rounded-xl shadow-lg hover:scale-105 transition block">
+              p-6 rounded-xl shadow-lg hover:scale-105 transition block animate__animated animate__fadeInRight">
       <h3 class="text-lg font-bold">📝 Applications Status</h3>
       <p class="text-2xl font-extrabold mt-2">{{ counts.applications }}</p>
       <p class="mt-1 text-sm opacity-80">Track student applications</p>
@@ -144,5 +137,6 @@
   window.onload = typeAdmin;
 </script>
 {% endblock %}
+
 
 
