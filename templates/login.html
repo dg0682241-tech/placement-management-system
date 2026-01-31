@@ -77,37 +77,25 @@
 </div>
 
 <script>
-function togglePassword(icon){
-  if(!icon) return;
+function togglePassword(icon) {
+  const field = document.getElementById(icon.dataset.target);
+  if (!field) return;
 
-  const targetId = icon.dataset.target;
-  if(!targetId) {
-    console.warn("togglePassword: data-target missing");
-    return;
-  }
+  const isHidden = field.type === "password";
 
-  const field = document.getElementById(targetId);
-  if(!field) {
-    console.warn("togglePassword: input not found", targetId);
-    return;
-  }
+  // Toggle password visibility
+  field.type = isHidden ? "text" : "password";
 
- if(field.type === "password"){
-  field.type = "text";
-  icon.classList.add("fa-eye");
-  icon.classList.remove("fa-eye-slash");
-} else {
-  field.type = "password";
-  icon.classList.add("fa-eye-slash");
-  icon.classList.remove("fa-eye");
+  // Force correct icon (NO toggle guessing)
+  icon.className = isHidden
+    ? "fa-solid fa-eye eye-icon absolute right-3 top-3 text-gray-500 cursor-pointer"
+    : "fa-solid fa-eye-slash eye-icon absolute right-3 top-3 text-gray-500 cursor-pointer";
 }
-
-}
-
 </script>
 
 
 {% endblock %}
+
 
 
 
