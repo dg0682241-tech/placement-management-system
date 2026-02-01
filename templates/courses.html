@@ -35,70 +35,151 @@
 
 <script>
 const courses = [
+ {
+  name: "Communication Skills",
+  videos: [
+    { title: "Effective Communication Skills - Full Course", link: "https://www.youtube.com/watch?v=Ht-N7t_gRAc" }, // MindTools
+    { title: "Communication Skills for Beginners", link: "https://www.youtube.com/watch?v=HAnw168huqA" }, // Skillopedia
+    { title: "Professional Communication Tips", link: "https://www.youtube.com/watch?v=fJ2oVt2A89E" } // Project Better Self
+  ]
+},
+{
+  name: "Body Language & Personality",
+  videos: [
+    { title: "Body Language in Communication", link: "https://www.youtube.com/watch?v=4Z6ZR1mpnqM" }, // Practical Psychology
+    { title: "Powerful Body Language in Interviews", link: "https://www.youtube.com/watch?v=0nKMjjoPvO0" }, // Charisma on Command
+    { title: "Build Confidence & Personality", link: "https://www.youtube.com/watch?v=8PzU8HzHhVg" } // Improvement Pill
+  ]
+},
+{
+  name: "Interview Preparation",
+  videos: [
+    { title: "Top 50 HR Interview Questions & Answers", link: "https://www.youtube.com/watch?v=KxBSvYSoaV8" }, // Intellipaat
+    { title: "Technical Interview Strategy", link: "https://www.youtube.com/watch?v=nuD05qPzuLM" }, // TechLead
+    { title: "How to Crack an Interview (Skillopedia)", link: "https://www.youtube.com/watch?v=Q79zRkdbZgA" } // Skillopedia
+  ]
+},
+{
+  name: "Aptitude (All Types)",
+  videos: [
+    { title: "Aptitude Full Course for Placements", link: "https://www.youtube.com/watch?v=pN0Sq0SM3Mk" }, // Apna College
+    { title: "Quantitative Aptitude Mastery", link: "https://www.youtube.com/watch?v=Qc9ZV_PO1uk" }, // Tamil Tech
+    { title: "Verbal Aptitude Practice Tests", link: "https://www.youtube.com/watch?v=E5kJKD2w5qQ" } // Career Ride
+  ]
+},
+{
+  name: "Reasoning Skills",
+  videos: [
+    { title: "Logical Reasoning Full Course", link: "https://www.youtube.com/watch?v=Js5hzk6Vd5g" }, // Unacademy
+    { title: "Analytical Reasoning Tricks", link: "https://www.youtube.com/watch?v=Pe6EjtStcj4" }, // Adda247
+    { title: "Critical Thinking Explained", link: "https://www.youtube.com/watch?v=75MQ2M2fG9Y" } // Sprouts
+  ]
+},
+{
+  name: "Python Programming",
+  videos: [
+    { title: "Python Programming Full Course", link: "https://www.youtube.com/watch?v=rfscVS0vtbw" }, // freeCodeCamp
+    { title: "Python for Absolute Beginners", link: "https://www.youtube.com/watch?v=_uQrJ0TkZlc" }, // freeCodeCamp.org
+    { title: "Build Projects with Python", link: "https://www.youtube.com/watch?v=WGJJIrtnfpk" } // Tech With Tim
+  ]
+},
+{
+  name: "SQL & Databases",
+  videos: [
+    { title: "SQL Full Course - Beginners", link: "https://www.youtube.com/watch?v=HXV3zeQKqGY" }, // freeCodeCamp
+    { title: "Advanced SQL Tutorial", link: "https://www.youtube.com/watch?v=9Pzj7Aj25lw" }, // Traversy Media
+    { title: "Database Design & Normalization", link: "https://www.youtube.com/watch?v=ztHopE5Wnpc" } // freeCodeCamp
+  ]
+},
+{
+  name: "Web Development Fundamentals",
+  videos: [
+    { title: "HTML & CSS Crash Course", link: "https://www.youtube.com/watch?v=UB1O30fR-EE" }, // Traversy Media
+    { title: "JavaScript Basics Full Course", link: "https://www.youtube.com/watch?v=PkZNo7MFNFg" }, // freeCodeCamp.org
+    { title: "Responsive Web Design Tutorial", link: "https://www.youtube.com/watch?v=srvUrASNj0s" } // Traversy Media
+  ]
+},
   {
-    name: "Communication Skills",
-    videos: [
-      { title: "Verbal Communication Basics", link: "https://www.youtube.com/watch?v=Zb7T9Gk6s3U" },
-      { title: "Professional Speaking Skills", link: "https://www.youtube.com/watch?v=R2xZyP3E7Xc" },
-      { title: "Public Speaking Confidence", link: "https://www.youtube.com/watch?v=Io6JjgckHbg" }
-    ]
-  },
-  {
-    name: "Body Language & Personality",
-    videos: [
-      { title: "Body Language for Interviews", link: "https://www.youtube.com/watch?v=4jwUXV4QaTw" },
-      { title: "Confident Posture & Gestures", link: "https://www.youtube.com/watch?v=Yc8mGZ0ZsEo" },
-      { title: "Reading Human Behavior", link: "https://www.youtube.com/watch?v=ZsZJ9J8RZtU" }
-    ]
-  },
-  {
-    name: "Interview Preparation",
-    videos: [
-      { title: "HR Interview Questions & Answers", link: "https://www.youtube.com/watch?v=Od0l0xN3rG0" },
-      { title: "Technical Interview Strategy", link: "https://www.youtube.com/watch?v=KUK8HpM8R28" },
-      { title: "Mock Interview Tips", link: "https://www.youtube.com/watch?v=Rz1R4Hk6z9s" }
-    ]
-  },
-  {
-    name: "Aptitude (All Types)",
-    videos: [
-      { title: "Quantitative Aptitude Full Course", link: "https://www.youtube.com/watch?v=qyj9A-12c6g" },
-      { title: "Logical Aptitude Concepts", link: "https://www.youtube.com/watch?v=c2NZfrvFjhU" },
-      { title: "Verbal Aptitude Practice", link: "https://www.youtube.com/watch?v=K0BzZzTz7kM" }
-    ]
-  },
-  {
-    name: "Reasoning Skills",
-    videos: [
-      { title: "Logical Reasoning Basics", link: "https://www.youtube.com/watch?v=vQxquf4Plyc" },
-      { title: "Analytical Reasoning Problems", link: "https://www.youtube.com/watch?v=3xZ8zF2D9kE" },
-      { title: "Critical Thinking Skills", link: "https://www.youtube.com/watch?v=H8j2YyP9Q7A" }
-    ]
-  },
-  {
-    name: "Python Programming",
-    videos: [
-      { title: "Python Full Course for Beginners", link: "https://www.youtube.com/watch?v=rfscVS0vtbw" },
-      { title: "Python for Problem Solving", link: "https://www.youtube.com/watch?v=HGOBQPFzWKo" },
-      { title: "Python Mini Projects", link: "https://www.youtube.com/watch?v=8ext9G7xspg" }
-    ]
-  },
-  {
-    name: "SQL & Databases",
-    videos: [
-      { title: "SQL Complete Tutorial", link: "https://www.youtube.com/watch?v=HXV3zeQKqGY" },
-      { title: "Joins, Subqueries & Indexes", link: "https://www.youtube.com/watch?v=9yeOJ0ZMUYw" },
-      { title: "Database Design Concepts", link: "https://www.youtube.com/watch?v=ztHopE5Wnpc" }
-    ]
-  },
-  {
-    name: "Web Development Fundamentals",
-    videos: [
-      { title: "HTML & CSS Crash Course", link: "https://www.youtube.com/watch?v=UB1O30fR-EE" },
-      { title: "JavaScript Basics", link: "https://www.youtube.com/watch?v=PkZNo7MFNFg" },
-      { title: "Frontend Project Walkthrough", link: "https://www.youtube.com/watch?v=Q33KBiDriJY" }
-    ]
-  }
+  name: "Data Structures & Algorithms",
+  videos: [
+    { title: "DSA Full Course (Beginner to Advanced)", link: "https://www.youtube.com/watch?v=8hly31xKli0" },
+    { title: "Arrays, Strings & Recursion", link: "https://www.youtube.com/watch?v=BBpAmxU_NQo" },
+    { title: "Trees, Graphs & DP Explained", link: "https://www.youtube.com/watch?v=RBSGKlAvoiM" }
+  ]
+},
+{
+  name: "Operating Systems",
+  videos: [
+    { title: "Operating Systems Full Course", link: "https://www.youtube.com/watch?v=26QPDBe-NB8" },
+    { title: "Processes, Threads & Scheduling", link: "https://www.youtube.com/watch?v=UkJrSk6P2dA" },
+    { title: "Memory Management & Deadlocks", link: "https://www.youtube.com/watch?v=EavkQZdnD8I" }
+  ]
+},
+{
+  name: "Computer Networks",
+  videos: [
+    { title: "Computer Networking Full Course", link: "https://www.youtube.com/watch?v=qiQR5rTSshw" },
+    { title: "TCP/IP & OSI Model Explained", link: "https://www.youtube.com/watch?v=IPvYjXCsTg8" },
+    { title: "Networking Interview Questions", link: "https://www.youtube.com/watch?v=3QhU9jd03a0" }
+  ]
+},
+{
+  name: "Database Management Systems (DBMS)",
+  videos: [
+    { title: "DBMS Complete Course", link: "https://www.youtube.com/watch?v=HXV3zeQKqGY" },
+    { title: "Normalization & Transactions", link: "https://www.youtube.com/watch?v=ztHopE5Wnpc" },
+    { title: "DBMS Interview Questions", link: "https://www.youtube.com/watch?v=9yeOJ0ZMUYw" }
+  ]
+},
+{
+  name: "Object Oriented Programming (OOP)",
+  videos: [
+    { title: "OOP Concepts in Depth", link: "https://www.youtube.com/watch?v=pTB0EiLXUC8" },
+    { title: "OOP Using Java", link: "https://www.youtube.com/watch?v=6T_HgnjoYwM" },
+    { title: "OOP Interview Questions", link: "https://www.youtube.com/watch?v=SiBw7os-_zI" }
+  ]
+},
+{
+  name: "Git & GitHub",
+  videos: [
+    { title: "Git & GitHub Full Course", link: "https://www.youtube.com/watch?v=RGOj5yH7evk" },
+    { title: "Branching & Pull Requests", link: "https://www.youtube.com/watch?v=oFYyTZwMyAg" },
+    { title: "GitHub for Placements", link: "https://www.youtube.com/watch?v=apGV9Kg7ics" }
+  ]
+},
+{
+  name: "Backend Development (Flask & Django)",
+  videos: [
+    { title: "Flask Full Course", link: "https://www.youtube.com/watch?v=Z1RJmh_OqeA" },
+    { title: "Django Full Course", link: "https://www.youtube.com/watch?v=F5mRW0jo-U4" },
+    { title: "REST APIs with Python", link: "https://www.youtube.com/watch?v=GMppyAPbLYk" }
+  ]
+},
+{
+  name: "System Design (Beginner Level)",
+  videos: [
+    { title: "System Design Basics", link: "https://www.youtube.com/watch?v=MbjObHmDbZo" },
+    { title: "Scalability & Load Balancing", link: "https://www.youtube.com/watch?v=UzLMhqg3_Wc" },
+    { title: "System Design Interview Tips", link: "https://www.youtube.com/watch?v=REB_eGHK_P4" }
+  ]
+},
+{
+  name: "Cloud Computing (AWS Basics)",
+  videos: [
+    { title: "AWS Cloud Practitioner Full Course", link: "https://www.youtube.com/watch?v=3hLmDS179YE" },
+    { title: "EC2, S3 & IAM Explained", link: "https://www.youtube.com/watch?v=ulprqHHWlng" },
+    { title: "Cloud Computing Interview Questions", link: "https://www.youtube.com/watch?v=YvZ8PZ-l3b8" }
+  ]
+},
+{
+  name: "Resume & Placement Preparation",
+  videos: [
+    { title: "How to Build a Strong Resume", link: "https://www.youtube.com/watch?v=Y8FJ6c5Z8zM" },
+    { title: "Placement Preparation Strategy", link: "https://www.youtube.com/watch?v=4ni5y6RrxpM" },
+    { title: "HR Interview Preparation", link: "https://www.youtube.com/watch?v=Od0l0xN3rG0" }
+  ]
+}
+
 ];
 
 // Render courses
@@ -130,9 +211,17 @@ function showCourses(list) {
       </div>
     `;
 
-    card.addEventListener("click", () => {
-      card.querySelector(".videoList").classList.toggle("hidden");
-    });
+  card.addEventListener("click", () => {
+  // Close all other open video lists
+  document.querySelectorAll(".videoList").forEach(list => {
+    if (list !== card.querySelector(".videoList")) {
+      list.classList.add("hidden");
+    }
+  });
+
+  // Toggle only the clicked one
+  card.querySelector(".videoList").classList.toggle("hidden");
+});
 
     container.appendChild(card);
   });
