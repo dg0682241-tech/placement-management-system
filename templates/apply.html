@@ -3,7 +3,7 @@
 {% block title %}Apply{% endblock %}
 
 {% block content %}
-<div class="max-w-4xl mx-auto px-6 pb-10 dark:text-black">
+<div class="max-w-4xl mx-auto px-6 pb-10">
 
   <h2 class="text-3xl font-bold mb-8 text-center">
     📝 Application Form – {{ placement.company }} ({{ placement.role }})
@@ -17,14 +17,14 @@
 
         <!-- Name -->
         <div>
-          <label class="font-medium">👤 Full Name</label>
+          <label class="font-medium dark:text-black">👤 Full Name</label>
           <input type="text" name="student_name" required
-            class="w-full mt-2 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-600">
+            class="w-full mt-2 px-4 py-2 border rounded-lg  dark:text-black focus:ring-2 focus:ring-indigo-600">
         </div>
 
        <!-- Phone -->
-        <div>
-          <label class="font-medium">📞 Phone Number</label>
+        <div class="dark:text-black">
+          <label class="font-medium ">📞 Phone Number</label>
           <input type="text"
                  name="phone"
                  required
@@ -37,8 +37,8 @@
           </p>
         </div>
         <!-- Course (Dropdown + Type) -->
-        <div>
-          <label class="font-medium">🎓 Course</label>
+        <div class="dark:text-black">
+          <label class="font-medium ">🎓 Course</label>
           <input type="text" name="course" list="courseList" required
             placeholder="Select or type your course"
             class="w-full mt-2 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-600">
@@ -56,7 +56,7 @@
           </datalist>
         </div>
 
-     <div class="mt-2 relative">
+     <div class="mt-2 relative dark:text-black">
        <label class="font-medium">🛠 Skills</label>
   <input
     type="text"
@@ -68,7 +68,7 @@
 
   <!-- Dropdown -->
   <div id="skillsDropdown"
-       class="absolute z-10 mt-1 w-full bg-white border rounded-lg shadow hidden max-h-40 overflow-y-auto">
+       class="absolute z-10 mt-1 w-full bg-white border rounded-lg shadow hidden dark:text-black max-h-40 overflow-y-auto">
   </div>
 
   <!-- Selected skills -->
@@ -82,8 +82,8 @@
       </div>
 
       <!-- Experience (Dropdown + Optional typing) -->
-      <div class="mt-6">
-        <label class="font-medium">💼 Experience</label>
+      <div class="mt-6 dark:text-black">
+        <label class="font-medium ">💼 Experience</label>
         <input type="text" name="experience" list="expList"
           placeholder="Select or describe your experience"
           class="w-full mt-2 px-4 py-2 border rounded-lg">
@@ -99,7 +99,7 @@
       </div>
 
      <!-- Resume Upload -->
-      <div class="mt-6">
+      <div class="mt-6 dark:text-black">
         <label class="font-medium">📄 Upload Resume</label>
         <input type="file"
                id="resumeInput"
@@ -240,6 +240,7 @@ document.addEventListener("click", e => {
 </script>
 
 {% endblock %}
+
 
 
 
