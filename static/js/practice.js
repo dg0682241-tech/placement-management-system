@@ -2026,24 +2026,22 @@ document.getElementById("modeQuiz").onclick = () => {
  practiceSection.classList.add("hidden");
 };
 
+document.querySelectorAll(".topicBtn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const topic = btn.dataset.topic;
 
-/* TOPIC SELECT */
-document.querySelectorAll(".topicBtn").forEach(btn=>{
- btn.addEventListener("click",()=>{
- let topic = btn.dataset.topic;
- renderPractice(topic);
- startQuiz(topic);
-    // SHOW practice section
-document.getElementById("practiceSection").classList.remove("hidden");
+    // detect active mode
+    const isPractice = !practiceSection.classList.contains("hidden");
+    const isQuiz = !quizSection.classList.contains("hidden");
 
-// HIDE quiz section (optional but recommended)
-document.getElementById("quizSection").classList.add("hidden");
+    if (isPractice) {
+      renderPractice(topic);
+    }
 
-// CLEAR old questions
-const container = document.getElementById("practiceContainer");
-container.innerHTML = "";
-
- });
+    if (isQuiz) {
+      startQuiz(topic);
+    }
+  });
 });
 
 
