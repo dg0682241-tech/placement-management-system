@@ -36,103 +36,125 @@
 <script>
 const courses = [
   {
-    name: "Google SRE / Cloud",
-    degree: "B.Tech / M.Tech (CS/IT)",
+    name: "Communication Skills",
     videos: [
-      { title: "Site Reliability Engineering - Full Course", link: "https://www.youtube.com/watch?v=3HYoJdIm2gA" },
-      { title: "Google Cloud SRE Practices", link: "https://www.youtube.com/watch?v=PNh6-7Es4Lc" },
+      { title: "Verbal Communication Basics", link: "https://www.youtube.com/watch?v=Zb7T9Gk6s3U" },
+      { title: "Professional Speaking Skills", link: "https://www.youtube.com/watch?v=R2xZyP3E7Xc" },
+      { title: "Public Speaking Confidence", link: "https://www.youtube.com/watch?v=Io6JjgckHbg" }
     ]
   },
   {
-    name: "Amazon Supply Chain & Operations",
-    degree: "MBA (Operations)",
+    name: "Body Language & Personality",
     videos: [
-      { title: "Supply Chain Management Basics", link: "https://www.youtube.com/watch?v=7pNYhD7EIjk" },
-      { title: "Amazon Operations Case Study", link: "https://www.youtube.com/watch?v=H9mS-YH8S4s" },
+      { title: "Body Language for Interviews", link: "https://www.youtube.com/watch?v=4jwUXV4QaTw" },
+      { title: "Confident Posture & Gestures", link: "https://www.youtube.com/watch?v=Yc8mGZ0ZsEo" },
+      { title: "Reading Human Behavior", link: "https://www.youtube.com/watch?v=ZsZJ9J8RZtU" }
     ]
   },
   {
-    name: "Microsoft Power Platform",
-    degree: "BCA / MCA",
+    name: "Interview Preparation",
     videos: [
-      { title: "Power Apps Full Tutorial", link: "https://www.youtube.com/watch?v=uZl0U9Vf9zI" },
-      { title: "Power Automate Beginner to Advanced", link: "https://www.youtube.com/watch?v=W5dn8u5FJcI" },
+      { title: "HR Interview Questions & Answers", link: "https://www.youtube.com/watch?v=Od0l0xN3rG0" },
+      { title: "Technical Interview Strategy", link: "https://www.youtube.com/watch?v=KUK8HpM8R28" },
+      { title: "Mock Interview Tips", link: "https://www.youtube.com/watch?v=Rz1R4Hk6z9s" }
     ]
   },
   {
-    name: "TCS SAP Consultant",
-    degree: "MBA / M.Com",
+    name: "Aptitude (All Types)",
     videos: [
-      { title: "SAP Functional Consultant Tutorial", link: "https://www.youtube.com/watch?v=Jf9_S7BZgJQ" },
-      { title: "SAP Modules Overview", link: "https://www.youtube.com/watch?v=8gTZECXl7qE" },
+      { title: "Quantitative Aptitude Full Course", link: "https://www.youtube.com/watch?v=qyj9A-12c6g" },
+      { title: "Logical Aptitude Concepts", link: "https://www.youtube.com/watch?v=c2NZfrvFjhU" },
+      { title: "Verbal Aptitude Practice", link: "https://www.youtube.com/watch?v=K0BzZzTz7kM" }
     ]
   },
   {
-    name: "Infosys Python Automation",
-    degree: "B.Sc (IT) / B.Tech",
+    name: "Reasoning Skills",
     videos: [
-      { title: "Python Automation Projects for Beginners", link: "https://www.youtube.com/watch?v=rfscVS0vtbw" },
-      { title: "Automation Scripts with Python", link: "https://www.youtube.com/watch?v=HW29067qVWk" },
+      { title: "Logical Reasoning Basics", link: "https://www.youtube.com/watch?v=vQxquf4Plyc" },
+      { title: "Analytical Reasoning Problems", link: "https://www.youtube.com/watch?v=3xZ8zF2D9kE" },
+      { title: "Critical Thinking Skills", link: "https://www.youtube.com/watch?v=H8j2YyP9Q7A" }
     ]
   },
   {
-    name: "Communication & Interview Skills",
-    degree: "All Degrees",
+    name: "Python Programming",
     videos: [
-      { title: "Improve Communication Skills", link: "https://www.youtube.com/watch?v=Zb7T9Gk6s3U" },
-      { title: "Interview Preparation Tips", link: "https://www.youtube.com/watch?v=Od0l0xN3rG0" },
-      { title: "Group Discussion Techniques", link: "https://www.youtube.com/watch?v=vQxquf4Plyc" },
+      { title: "Python Full Course for Beginners", link: "https://www.youtube.com/watch?v=rfscVS0vtbw" },
+      { title: "Python for Problem Solving", link: "https://www.youtube.com/watch?v=HGOBQPFzWKo" },
+      { title: "Python Mini Projects", link: "https://www.youtube.com/watch?v=8ext9G7xspg" }
     ]
   },
   {
-    name: "Aptitude Preparation",
-    degree: "All Degrees",
+    name: "SQL & Databases",
     videos: [
-      { title: "Aptitude Basics", link: "https://www.youtube.com/watch?v=qyj9A-12c6g" },
-      { title: "Quantitative Aptitude Tricks", link: "https://www.youtube.com/watch?v=c2NZfrvFjhU" },
+      { title: "SQL Complete Tutorial", link: "https://www.youtube.com/watch?v=HXV3zeQKqGY" },
+      { title: "Joins, Subqueries & Indexes", link: "https://www.youtube.com/watch?v=9yeOJ0ZMUYw" },
+      { title: "Database Design Concepts", link: "https://www.youtube.com/watch?v=ztHopE5Wnpc" }
+    ]
+  },
+  {
+    name: "Web Development Fundamentals",
+    videos: [
+      { title: "HTML & CSS Crash Course", link: "https://www.youtube.com/watch?v=UB1O30fR-EE" },
+      { title: "JavaScript Basics", link: "https://www.youtube.com/watch?v=PkZNo7MFNFg" },
+      { title: "Frontend Project Walkthrough", link: "https://www.youtube.com/watch?v=Q33KBiDriJY" }
     ]
   }
 ];
 
-// Function to populate courses
+// Render courses
 function showCourses(list) {
   const container = document.getElementById("coursesContainer");
   container.innerHTML = "";
+
   list.forEach(course => {
     const card = document.createElement("div");
-    card.className = "bg-white dark:bg-gray-800 border border-emerald-300 dark:border-gray-600 rounded-xl shadow-lg p-4 cursor-pointer transition hover:shadow-2xl hover:bg-emerald-50 dark:hover:bg-emerald-700";
+    card.className =
+      "bg-white dark:bg-gray-800 border border-emerald-300 dark:border-gray-600 rounded-xl shadow-lg p-4 cursor-pointer transition hover:shadow-2xl hover:bg-emerald-50 dark:hover:bg-emerald-700";
+
     card.innerHTML = `
-      <h2 class="text-xl font-bold text-emerald-700 dark:text-white mb-1">${course.name}</h2>
-      <p class="text-gray-600 dark:text-gray-300 mb-2">${course.degree}</p>
+      <h2 class="text-xl font-bold text-emerald-700 dark:text-white mb-2">
+        ${course.name}
+      </h2>
+
       <div class="videoList hidden mt-2 space-y-2">
-        ${course.videos.map(v => `
-          <a href="${v.link}" target="_blank" class="flex items-center gap-2 px-3 py-1 bg-emerald-100 dark:bg-gray-700 dark:text-white rounded-lg hover:bg-emerald-200 dark:hover:bg-emerald-600 transition">
-            <span>🎬</span>${v.title}
-          </a>`).join('')}
+        ${course.videos
+          .map(
+            v => `
+          <a href="${v.link}" target="_blank"
+            class="flex items-center gap-2 px-3 py-1 bg-emerald-100 dark:bg-gray-700 dark:text-white rounded-lg hover:bg-emerald-200 dark:hover:bg-emerald-600 transition">
+            <span>🎥</span>
+            ${v.title}
+          </a>`
+          )
+          .join("")}
       </div>
     `;
+
     card.addEventListener("click", () => {
-      const list = card.querySelector(".videoList");
-      list.classList.toggle("hidden");
+      card.querySelector(".videoList").classList.toggle("hidden");
     });
+
     container.appendChild(card);
   });
 }
 
-// Initial display
+// Initial load
 showCourses(courses);
 
-// Search functionality
+// Search with loader
 document.getElementById("searchBtn").addEventListener("click", () => {
   const query = document.getElementById("courseSearch").value.toLowerCase();
-  const filtered = courses.filter(c => c.name.toLowerCase().includes(query));
   const loader = document.getElementById("loader");
   loader.classList.remove("hidden");
 
   setTimeout(() => {
     loader.classList.add("hidden");
+    const filtered = courses.filter(c =>
+      c.name.toLowerCase().includes(query)
+    );
     showCourses(filtered.length ? filtered : courses);
-  }, 700); // simulate loader delay
+  }, 700);
 });
 </script>
+
 {% endblock %}
