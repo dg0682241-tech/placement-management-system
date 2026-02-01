@@ -80,7 +80,7 @@
                   class="flex flex-col gap-2">
 
               <select name="status"
-                      class="border rounded-md p-1 text-sm focus:outline-none">
+                      class="border rounded-md p-1 text-sm focus:outline-none dark:bg-black">
                 <option value="Applied" {% if app[8]=='Applied' %}selected{% endif %}>Applied</option>
                 <option value="Shortlisted" {% if app[8]=='Shortlisted' %}selected{% endif %}>Shortlisted</option>
                 <option value="Selected" {% if app[8]=='Selected' %}selected{% endif %}>Selected</option>
@@ -174,4 +174,5 @@
 </div>
 
 {% endblock %}
+
 
