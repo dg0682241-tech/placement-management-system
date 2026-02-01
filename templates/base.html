@@ -598,7 +598,7 @@ async function verifyOTP(){
   const res = await fetch("/verify-otp",{
     method:"POST",
     headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({ otp, email })
+     body: JSON.stringify({ email: email, otp: otp }) //
   });
 
   const data = await res.json();
@@ -707,6 +707,7 @@ function resetChat(){
   
 </body>
 </html>
+
 
 
 
