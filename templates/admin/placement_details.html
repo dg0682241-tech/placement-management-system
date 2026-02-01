@@ -35,11 +35,13 @@
             bg-indigo-50 dark:bg-slate-800
             p-3 rounded-lg mb-3">
 
-  <span class="block font-semibold text-gray-800 dark:text-gray-100">
+  <!-- LABEL -->
+  <span class="block font-semibold text-gray-800 dark:text-slate-400">
     {{ label }}:
   </span>
 
-  <span class="view-text block text-gray-700 dark:text-gray-300 mt-1">
+  <!-- VALUE (VIEW MODE) -->
+  <span class="view-text block text-gray-700 dark:text-slate-300 mt-1">
     {{ value }}
   </span>
 
@@ -48,14 +50,14 @@
             class="edit-input hidden w-full mt-2 p-2 rounded-md
                    bg-white dark:bg-slate-900
                    border border-gray-400 dark:border-slate-600
-                   text-gray-800 dark:text-gray-100
+                   text-gray-800 dark:text-slate-200
                    h-[120px]"></textarea>
   {% else %}
   <input type="{{ type }}" name="{{ name }}" value="{{ value }}"
          class="edit-input hidden w-full mt-2 p-2 rounded-md
                 bg-white dark:bg-slate-900
                 border border-gray-400 dark:border-slate-600
-                text-gray-800 dark:text-gray-100">
+                text-gray-800 dark:text-slate-200">
   {% endif %}
 </div>
 {% endmacro %}
@@ -74,7 +76,7 @@
             bg-indigo-50 dark:bg-slate-800
             p-3 rounded-lg mb-3">
 
-  <span class="font-semibold text-gray-800 dark:text-gray-100">
+  <span class="font-semibold text-gray-800 dark:text-slate-400">
     Apply Link:
   </span>
 
@@ -82,7 +84,7 @@
     {% if placement.link %}
       <a href="{{ placement.link }}" target="_blank">{{ placement.link }}</a>
     {% else %}
-      <span class="text-gray-700 dark:text-gray-300">
+      <span class="text-gray-700 dark:text-slate-400">
         No Link Available
       </span>
     {% endif %}
@@ -92,7 +94,7 @@
          class="edit-input hidden w-full mt-2 p-2 rounded-md
                 bg-white dark:bg-slate-900
                 border border-gray-400 dark:border-slate-600
-                text-gray-800 dark:text-gray-100">
+                text-gray-800 dark:text-slate-200">
 </div>
 
 <!-- BUTTONS -->
@@ -135,7 +137,7 @@
                 border-t-indigo-600
                 rounded-full animate-spin"></div>
 
-    <p class="font-semibold text-gray-700 dark:text-gray-100">
+    <p class="font-semibold text-gray-700 dark:text-slate-200">
       Saving changes…
     </p>
   </div>
