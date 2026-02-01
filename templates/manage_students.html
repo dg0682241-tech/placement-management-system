@@ -13,8 +13,14 @@
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
 
     <input list="experienceOptions" type="text" placeholder="Experience"
-           id="searchExperience"
-           class="bg-white/40 dark:bg-gray-800/70 backdrop-blur-md border border-white/60 dark:border-gray-500 rounded-lg p-2 outline-none text-sm text-gray-800 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400">
+      id="searchExperience"
+      class="bg-white/40 dark:bg-gray-800/70 backdrop-blur-md
+             border border-white/60 dark:border-gray-500
+             rounded-lg p-2 outline-none text-sm
+             text-gray-800 dark:text-gray-100
+             caret-gray-800 dark:caret-gray-100
+             placeholder-gray-500 dark:placeholder-gray-400">
+
     <datalist id="experienceOptions">
       <option value="0-1 years">
       <option value="1-2 years">
@@ -24,8 +30,14 @@
     </datalist>
 
     <input list="courseOptions" type="text" placeholder="Course"
-           id="searchCourse"
-           class="bg-white/40 dark:bg-gray-800/70 backdrop-blur-md border border-white/60 dark:border-gray-500 rounded-lg p-2 outline-none text-sm text-gray-800 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400">
+      id="searchCourse"
+      class="bg-white/40 dark:bg-gray-800/70 backdrop-blur-md
+             border border-white/60 dark:border-gray-500
+             rounded-lg p-2 outline-none text-sm
+             text-gray-800 dark:text-gray-100
+             caret-gray-800 dark:caret-gray-100
+             placeholder-gray-500 dark:placeholder-gray-400">
+
     <datalist id="courseOptions">
       <option value="B.Tech">
       <option value="M.Tech">
@@ -37,8 +49,14 @@
     </datalist>
 
     <input list="branchOptions" type="text" placeholder="Branch"
-           id="searchBranch"
-           class="bg-white/40 dark:bg-gray-800/70 backdrop-blur-md border border-white/60 dark:border-gray-500 rounded-lg p-2 outline-none text-sm text-gray-800 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400">
+      id="searchBranch"
+      class="bg-white/40 dark:bg-gray-800/70 backdrop-blur-md
+             border border-white/60 dark:border-gray-500
+             rounded-lg p-2 outline-none text-sm
+             text-gray-800 dark:text-gray-100
+             caret-gray-800 dark:caret-gray-100
+             placeholder-gray-500 dark:placeholder-gray-400">
+
     <datalist id="branchOptions">
       <option value="Computer Science">
       <option value="Electrical">
@@ -51,8 +69,14 @@
     </datalist>
 
     <input list="cgpaSkillOptions" type="text" placeholder="CGPA / Skill"
-           id="searchCgpaSkill"
-           class="bg-white/40 dark:bg-gray-800/70 backdrop-blur-md border border-white/60 dark:border-gray-500 rounded-lg p-2 outline-none text-sm text-gray-800 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400">
+      id="searchCgpaSkill"
+      class="bg-white/40 dark:bg-gray-800/70 backdrop-blur-md
+             border border-white/60 dark:border-gray-500
+             rounded-lg p-2 outline-none text-sm
+             text-gray-800 dark:text-gray-100
+             caret-gray-800 dark:caret-gray-100
+             placeholder-gray-500 dark:placeholder-gray-400">
+
     <datalist id="cgpaSkillOptions">
       <option value="8.0+ CGPA">
       <option value="7.0+ CGPA">
@@ -69,7 +93,7 @@
   <!-- Search Button -->
   <div class="flex justify-center mb-4">
     <button id="searchBtn"
-            class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg transition">
+      class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg transition">
       Search
     </button>
   </div>
@@ -83,15 +107,15 @@
   <div id="studentContainer" class="space-y-6">
     {% for s in students %}
     <div class="student-card bg-white/40 dark:bg-gray-800/70 backdrop-blur-md
-                border border-white/30 dark:border-gray-600 p-6 rounded-xl shadow-lg relative
-                text-gray-800 dark:text-gray-100">
+                border border-white/30 dark:border-gray-600
+                p-6 rounded-xl shadow-lg text-gray-800 dark:text-gray-100">
 
-      <!-- Card Header -->
       <div class="flex justify-between items-start">
         <div>
-          <h3 class="text-xl font-bold dark:text-gray-100">{{ s['username'] }}</h3>
+          <h3 class="text-xl font-bold">{{ s['username'] }}</h3>
           <p class="text-gray-700 dark:text-gray-300">{{ s['email'] }}</p>
         </div>
+
         <div class="flex gap-2">
           <button class="details-btn bg-green-500 hover:bg-green-600 text-white px-4 py-1 rounded transition">
             Details
@@ -102,58 +126,46 @@
         </div>
       </div>
 
-      <!-- Card Fields -->
       <div class="mt-4 grid grid-cols-2 gap-4">
-        <p class="field experience dark:text-gray-200"><b>Experience:</b> {{ s['experience']|default('N/A') }}</p>
-        <p class="field course dark:text-gray-200"><b>Course:</b> {{ s['course']|default('N/A') }}</p>
-        <p class="field branch dark:text-gray-200"><b>Branch:</b> {{ s['branch']|default('N/A') }}</p>
-        <p class="field cgpa-skill dark:text-gray-200"><b>CGPA / Skills:</b> {{ s['cgpa'] }} / {{ s['skills'] }}</p>
+        <p><b>Experience:</b> {{ s['experience']|default('N/A') }}</p>
+        <p><b>Course:</b> {{ s['course']|default('N/A') }}</p>
+        <p><b>Branch:</b> {{ s['branch']|default('N/A') }}</p>
+        <p><b>CGPA / Skills:</b> {{ s['cgpa'] }} / {{ s['skills'] }}</p>
       </div>
 
       <!-- Details Panel -->
-      <div class="details-panel mt-4 p-4 rounded-lg hidden
-                  bg-white/90 dark:bg-gray-900 shadow-lg
-                  text-gray-800 dark:text-gray-200">
-        <h4 class="font-bold text-lg mb-2 dark:text-gray-100">Profile Info</h4>
-
-        <div class="grid grid-cols-2 gap-4 mb-4">
-          <p><b>Phone:</b> {{ s['phone']|default('N/A') }}</p>
-          <p><b>Gender:</b> {{ s['gender']|default('N/A') }}</p>
-          <p><b>Passing Year:</b> {{ s['passing_year']|default('N/A') }}</p>
-          <p><b>CGPA:</b> {{ s['cgpa']|default('N/A') }}</p>
-          <p class="col-span-2"><b>Bio:</b> {{ s['bio']|default('N/A') }}</p>
-        </div>
-
-        <h4 class="font-bold text-lg mb-2 dark:text-gray-100">Applications</h4>
-        <table class="w-full text-sm border border-gray-300 dark:border-gray-700">
-          <thead class="bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200">
-            <tr>
-              <th class="border px-2 py-1">Company</th>
-              <th class="border px-2 py-1">Role</th>
-              <th class="border px-2 py-1">Status</th>
-              <th class="border px-2 py-1">Resume</th>
-            </tr>
-          </thead>
-          <tbody class="dark:text-gray-200">
-            {% for a in s['applications'] %}
-            <tr>
-              <td class="border px-2 py-1">{{ a['company'] }}</td>
-              <td class="border px-2 py-1">{{ a['role'] }}</td>
-              <td class="border px-2 py-1">{{ a['status'] }}</td>
-              <td class="border px-2 py-1 text-center">
-                {% if a['resume'] %}
-                <a href="{{ url_for('static', filename='uploads/resumes/' ~ a['resume']) }}"
-                   class="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold hover:bg-blue-700 transition"
-                   download>Download</a>
-                {% else %}N/A{% endif %}
-              </td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+      <div class="details-panel hidden mt-4 p-4 rounded-lg
+                  bg-white/90 dark:bg-gray-900
+                  text-gray-800 dark:text-gray-200 shadow-lg">
+        <h4 class="font-bold text-lg mb-2">Profile Info</h4>
+        <p><b>Phone:</b> {{ s['phone']|default('N/A') }}</p>
+        <p><b>Gender:</b> {{ s['gender']|default('N/A') }}</p>
+        <p><b>Passing Year:</b> {{ s['passing_year']|default('N/A') }}</p>
+        <p><b>Bio:</b> {{ s['bio']|default('N/A') }}</p>
       </div>
     </div>
     {% endfor %}
   </div>
 </div>
+
+<!-- JS -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  document.querySelectorAll(".details-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const panel = btn.closest(".student-card").querySelector(".details-panel");
+      panel.classList.toggle("hidden");
+    });
+  });
+
+  document.querySelectorAll(".remove-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      btn.closest(".student-card").remove();
+    });
+  });
+
+});
+</script>
+
 {% endblock %}
