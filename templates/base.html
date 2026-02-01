@@ -11,9 +11,6 @@
   <!-- Animate.css -->
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-<link rel="stylesheet"
- href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <!-- Font Awesome -->
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
@@ -29,171 +26,32 @@
 body {
   font-family: 'Inter', 'DM Sans', sans-serif;
 }
-
 .eye-icon { cursor: pointer; }
-
-/* ===============================
-   DARK THEME – FORCE OVERRIDE
-   =============================== */
-
-body.dark-theme {
-  background-color: #334155; /* soft navy */
-  color: #e5e7eb;
-}
-main.dark-theme text-black {
-  color:white;
-}
-/* FORCE BODY BACKGROUND */
-html.dark-theme,
-body.dark-theme {
-  background-color: #334155 !important;
-}
-
-/* ===============================
-   CARDS (bg-white → white but visible)
-   =============================== */
-.dark-theme .bg-white {
-  background-color: #ffffff !important;
-  color: #0f172a !important;
-}
-
-/* Card text */
-.dark-theme .bg-white h1,
-.dark-theme .bg-white h2,
-.dark-theme .bg-white h3,
-.dark-theme .bg-white p,
-.dark-theme .bg-white span,
-.dark-theme .bg-white label {
-  color: #0f172a !important;
-}
-
-/* ===============================
-   BUTTONS (REAL BACKGROUND CHANGE)
-   =============================== */
-.dark-theme .bg-blue-600 {
-  background-color: #2563eb !important;
-}
-
-.dark-theme .bg-blue-500 {
-  background-color: #3b82f6 !important;
-}
-
-
-/* ===============================
-   TEXT UTILITIES OVERRIDE
-   =============================== */
-.dark-theme .text-gray-900,
-.dark-theme .text-gray-800 {
-  color: #0f172a !important;
-}
-
-.dark-theme .text-gray-700,
-.dark-theme .text-gray-600 {
-  color: #334155 !important;
-}
-
-/* ===============================
-   NAVBAR & FOOTER
-   =============================== */
-.dark-theme footer {
-  background-color: rgba(30,41,59,0.88) !important;
-  backdrop-filter: blur(12px);
-}
-  /* ===============================
-   INPUTS (ONLY INSIDE DARK UI)
-   =============================== */
-.dark-theme input,
-.dark-theme textarea,
-.dark-theme select {
-  background-color: #f8fafc;
-  color: #0f172a;
-  border: 1px solid #cbd5e1;
-}
-
-.dark-theme input::placeholder {
-  color: #64748b;
-}
-
-/* ===============================
-   DROPDOWN (UNCHANGED LOOK)
-   =============================== */
-.dark-theme .dropdown-panel {
-  background: rgba(30,41,59,0.95);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.12);
-}
-
-/* ===============================
-   THEME SWITCH
-   =============================== */
-.dark-theme #themeSwitch {
-  background-color: #2563eb;
-}
-
-.dark-theme #themeKnob {
-  transform: translateX(20px);
-}
-* ===============================
-   DARK THEME – MAIN TEXT FORCE
-   =============================== */
-
-/* Default text becomes light */
-body.dark-theme {
-  color: #f8fafc; /* slate-50 (soft white) */
-}
-
-/* Override common Tailwind text colors globally */
-body.dark-theme .text-gray-900,
-body.dark-theme .text-gray-800,
-body.dark-theme .text-gray-700,
-body.dark-theme .text-gray-600,
-body.dark-theme .text-indigo-600,
-body.dark-theme .text-blue-600,
-body.dark-theme .text-slate-900 {
-  color: #f8fafc !important;
-}
-
-/* EXCEPTION: cards stay dark */
-body.dark-theme .bg-white,
-body.dark-theme .bg-white * {
-  color: #0f172a !important;
-}
 </style>
-
 </head>
-
-<body class="min-h-screen flex flex-col bg-indigo-50 text-gray-900">
-
+<body class="min-h-screen flex flex-col bg-indigo-50 text-gray-900 dark:bg-slate-900 dark:text-gray-100">
 <!-- ================= NAVBAR ================= -->
-<nav class="top-0 w-full z-60 h-16 bg-indigo-100/80 backdrop-blur-md border-b border-indigo-200">
-  <div class="max-w-7xl mx-auto px-6 h-full flex justify-between items-center">
+<nav class="top-0 w-full z-60 h-16
+            bg-indigo-100/80 dark:bg-slate-900/80
+            backdrop-blur-md border-b
+            border-indigo-200 dark:border-slate-700">
+  <div class="max-w-7xl mx-auto px-6 h-full flex justify-between items-center">">
 
     <!-- Logo -->
     <div class="flex items-center gap-3 group cursor-pointer">
       <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold
                   group-hover:scale-110 transition">H</div>
-      <span class="hidden md:inline text-3xl font-extrabold text-blue-600
-                   group-hover:tracking-wide transition">
+      <span class="hidden md:inline text-3xl font-extrabold text-blue-600">
         HireHub
       </span>
     </div>
 {% if show_nav_options %}
     <!-- Desktop Menu -->
-    <div class="hidden md:flex gap-6 items-center text-blue-600 font-medium">
+   <div class="hidden md:flex gap-6 items-center text-blue-600 font-medium">
 
-      <a href="{{ home_url }}" class="relative pb-1
-          border-b-2 border-transparent
-          hover:border-blue-600
-          transition-all duration-200">Home</a>
-      <a href="/about" class="relative pb-1
-          border-b-2 border-transparent
-          hover:border-blue-600
-          transition-all duration-200">About</a>
-      <a href="/rate" class="relative pb-1
-          border-b-2 border-transparent
-          hover:border-blue-600
-          transition-all duration-200">Rate</a>
-
+      <a href="{{ home_url }}" class="hover:border-b-2 hover:border-blue-600">Home</a>
+      <a href="/about" class="hover:border-b-2 hover:border-blue-600">About</a>
+      <a href="/rate" class="hover:border-b-2 hover:border-blue-600">Rate</a>
       <div class="relative pb-1
             border-b-2 border-transparent
             hover:border-blue-600
@@ -730,6 +588,7 @@ function resetChat(){
   
 </body>
 </html>
+
 
 
 
