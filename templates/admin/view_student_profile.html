@@ -5,7 +5,7 @@
 <div class="max-w-[1550px] mx-auto mb-6 px-4">
 
     <!-- Heading -->
-    <h2 class="text-center text-4xl font-extrabold text-slate-900 dark:text-white">
+    <h2 class="text-center text-4xl font-extrabold text-slate-900 dark:text-black">
         👤 Student Profile Details
     </h2>
 
@@ -28,11 +28,11 @@
                          class="w-[190px] h-[190px] rounded-full object-cover border-4 border-blue-500">
                 {% endif %}
 
-               <p class="mt-3 font-bold text-lg text-slate-900 dark:text-white">
+               <p class="mt-3 font-bold text-lg text-slate-900 dark:text-black">
                     {{ student.username }}
                 </p>
 
-                <span class="mt-1 inline-block bg-cyan-200 text-slate-900 text-sm font-semibold px-3 py-1 rounded-full dark:bg-slate-700 dark:text-white">
+                <span class="mt-1 inline-block bg-cyan-200 text-slate-900 text-sm font-semibold px-3 py-1 rounded-full dark:bg-slate-700 dark:text-black">
                     {{ student.email }}
                 </span>
 
@@ -41,7 +41,7 @@
             <!-- Details -->
             <div class="md:col-span-2">
 
-                <p class="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                <p class="text-xl font-bold text-slate-900 dark:text-black mb-2">
                     📄 Profile Information
                 </p>
 
@@ -71,17 +71,17 @@
                 </div>
 
                 <!-- Skills -->
-                <div class="mt-3 bg-blue-100 dark:bg-slate-800 rounded-xl px-4 py-2 text-sm text-slate-900 dark:text-white">
+                <div class="mt-3 bg-blue-100 dark:bg-slate-800 rounded-xl px-4 py-2 text-sm text-slate-900 dark:text-black">
                     <b>Skills:</b> {{ student.skills or "Not Provided" }}
                 </div>
 
                 <!-- Certifications -->
-                <div class="mt-2 bg-blue-100 dark:bg-slate-800 rounded-xl px-4 py-2 text-sm text-slate-900 dark:text-white">
+                <div class="mt-2 bg-blue-100 dark:bg-slate-800 rounded-xl px-4 py-2 text-sm text-slate-900 dark:text-black">
                     <b>Certifications:</b> {{ student.certifications or "Not Provided" }}
                 </div>
 
                 <!-- Bio -->
-                <div class="mt-3 text-sm text-slate-900 dark:text-slate-300">
+                <div class="mt-3 text-sm text-slate-900 dark:text-slate-900">
                     <b>Bio:</b> {{ student.bio or "Not Provided" }}
                 </div>
 
@@ -90,14 +90,14 @@
 
                     {% if student.linkedin %}
                         <a href="{{ student.linkedin }}" target="_blank"
-                           class="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition dark:text-black">
+                           class="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition">
                             🔗 LinkedIn
                         </a>
                     {% endif %}
 
                     {% if student.github %}
                         <a href="{{ student.github }}" target="_blank"
-                           class="px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-black transition dark:text-black">
+                           class="px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-black transition">
                             💻 GitHub
                         </a>
                     {% endif %}
