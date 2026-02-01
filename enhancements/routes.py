@@ -451,7 +451,7 @@ def update_password():
     # If logged-in user, email can be ignored
     user_id = session.get("user_id")
     email = data.get("email", "").strip()  # for forgot password flow
-    new_password = data.get("password")   # matches JS
+    new_password = data.get("new_password")   # matches JS
     confirm_password = data.get("confirm_password") or new_password
 
     if new_password != confirm_password:
@@ -1648,6 +1648,7 @@ def admin_questions1_message():
     reply = chat_with_ai(user_message, role="admin")
 
     return jsonify({"reply": reply})
+
 
 
 
