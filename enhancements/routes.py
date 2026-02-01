@@ -403,10 +403,17 @@ def send_otp():
         "attempts": 3
     }
 
-    # optional: send email
-    # msg = Message("HireHub Password Reset OTP", recipients=[email])
-    # msg.body = f"Your OTP is {otp}. It is valid for 5 minutes."
-    # mail.send(msg)
+    # ✅ SEND OTP EMAIL
+    try:
+        msg = Message(
+            "HireHub Password Reset OTP",
+            recipients=[email]
+        )
+        msg.body = f"Your OTP is {otp}. It is valid for 5 minutes."
+        mail.send(msg)
+    except Exception as e:
+        print("❌ Failed to send OTP email:", e)
+        return jsonify({"success": False, "message": "Failed to send email"})
 
     return jsonify({"success": True})
 
@@ -1648,6 +1655,7 @@ def admin_questions1_message():
     reply = chat_with_ai(user_message, role="admin")
 
     return jsonify({"reply": reply})
+
 
 
 
