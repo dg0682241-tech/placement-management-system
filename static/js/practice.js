@@ -2033,6 +2033,16 @@ document.querySelectorAll(".topicBtn").forEach(btn=>{
  let topic = btn.dataset.topic;
  renderPractice(topic);
  startQuiz(topic);
+    // SHOW practice section
+document.getElementById("practiceSection").classList.remove("hidden");
+
+// HIDE quiz section (optional but recommended)
+document.getElementById("quizSection").classList.add("hidden");
+
+// CLEAR old questions
+const container = document.getElementById("practiceContainer");
+container.innerHTML = "";
+
  });
 });
 
