@@ -322,7 +322,7 @@ body {
 <!-- ================= CHATBOT ================= -->
 <div id="chatbot"
      onclick="event.stopPropagation()"
-     class="hidden fixed bottom-20 right-10 w-80 bg-white rounded-xl shadow-2xl z-50">
+     class="hidden fixed bottom-20 right-10 w-80 bg-white rounded-xl shadow-2xl z-50 dark:text-black">
 
   <!-- Header -->
   <div class="bg-indigo-600 text-white px-4 py-2 font-bold
@@ -331,7 +331,7 @@ body {
 
     <!-- Close Button -->
     <button onclick="closeChatbot()"
-            class="text-white text-xl leading-none hover:opacity-80">
+            class="text-white text-xl leading-none hover:opacity-80 dark:text-black">
       &times;
     </button>
   </div>
@@ -344,7 +344,7 @@ body {
   <!-- Input -->
   <div class="flex border-t">
     <input id="chat-input"
-           class="flex-1 px-3 py-2 focus:outline-none"
+           class="flex-1 px-3 py-2 focus:outline-none dark:text-black"
            placeholder="Type your message...">
     <button onclick="sendMessage()"
             class="px-4 font-bold text-indigo-600">
@@ -714,6 +714,7 @@ function resetChat(){
   
 </body>
 </html>
+
 
 
 
