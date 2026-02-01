@@ -12,8 +12,6 @@
   <div class="flex justify-center gap-6 mb-8">
     <button id="modePractice" class="modeBtn bg-blue-600">📚 Practice</button>
     <button id="modeQuiz" class="modeBtn bg-yellow-600">🎯 Quiz</button>
-    <button class="topicBtn bg-indigo-600" data-topic="courses">🎓 Courses</button>
-
   </div>
 
   <!-- TOPIC BOX -->
@@ -90,8 +88,8 @@
       </div>
       <div id="historyList" class="space-y-2 text-sm">
   {% for attempt in attempts %}
-    <div class="flex justify-between items-center bg-gray-100 p-2 rounded">
-      <span class="dark:text-black">Score: {{ attempt.score }} | Date: {{ attempt.date }}</span>
+    <div class="flex justify-between items-center bg-gray-100 p-2 rounded dark:text-black">
+      <span>Score: {{ attempt.score }} | Date: {{ attempt.date }}</span>
     </div>
   {% else %}
     No previous attempts yet...
@@ -141,6 +139,7 @@ padding:8px;border-radius:6px;
 <script src="{{ url_for('static', filename='js/practice.js') }}"></script>
 
 {% endblock %}
+
 
 
 
