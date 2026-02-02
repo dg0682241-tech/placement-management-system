@@ -405,7 +405,7 @@ def send_otp():
 
     # ✅ SEND OTP EMAIL
    # TEMPORARILY DISABLE EMAIL SENDING (Railway-safe)
-  try:
+     try:
     msg = Message(
         "HireHub Password Reset OTP",
         recipients=[email]
@@ -1658,6 +1658,7 @@ def admin_questions1_message():
     reply = chat_with_ai(user_message, role="admin")
 
     return jsonify({"reply": reply})
+
 
 
 
