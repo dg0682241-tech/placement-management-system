@@ -411,8 +411,8 @@ def send_otp():
         )
         msg.body = f"Your OTP is {otp}. It is valid for 5 minutes."
         mail.send(msg)
-except Exception as e:
-    print("❌ EMAIL FAILED:", e)
+    except Exception as e:
+      print("❌ EMAIL FAILED:", e)
         return jsonify({"success": False, "message": "Failed to send email"})
 
     return jsonify({"success": True})
@@ -1658,6 +1658,7 @@ def admin_questions1_message():
     reply = chat_with_ai(user_message, role="admin")
 
     return jsonify({"reply": reply})
+
 
 
 
